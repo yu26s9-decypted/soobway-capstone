@@ -5,7 +5,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        boolean useGui = true;
+        boolean useGui = false;
 
         if(useGui)
         {
@@ -13,7 +13,8 @@ public class Main
         }
         else
         {
-            System.out.println("Test");
+            UserInterface userInterface = new UserInterface();
+            userInterface.display();
         }
     }
 }
