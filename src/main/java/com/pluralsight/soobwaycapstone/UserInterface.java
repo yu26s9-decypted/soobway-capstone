@@ -2,9 +2,10 @@ package com.pluralsight.soobwaycapstone;
 
 import com.pluralsight.soobwaycapstone.models.Order;
 import com.pluralsight.soobwaycapstone.ui.Console;
+import com.pluralsight.soobwaycapstone.ui.ConsoleOrderUI;
 
 public class UserInterface {
-
+    private final OrderManager orderManager = new OrderManager(new ConsoleOrderUI());
     public void display(){
         boolean running = true;
         while (running){
@@ -21,7 +22,7 @@ public class UserInterface {
             int userInput = Console.askForInt(m, 1, 2);
 
             if (userInput == 1) {
-                processNewOrder();
+                orderManager.processNewOrder();
             } else {
                 System.out.println("Thank you!");
                 break;
