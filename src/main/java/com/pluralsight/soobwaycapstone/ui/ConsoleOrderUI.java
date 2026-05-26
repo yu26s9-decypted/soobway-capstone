@@ -11,8 +11,18 @@ import java.util.List;
 public class ConsoleOrderUI implements IOrderUI{
     @Override
     public Size askSize() {
-        return null;
-    }
+        String prompt = """
+            \t Choose a size:
+            \t 1) Small  - $3.50
+            \t 2) Medium - $6.50
+            \t 3) Large  - $9.50
+            >""";
+        return switch (Console.askForInt(prompt, 1, 3)) {
+            case 1 -> Size.SMALL;
+            case 2 -> Size.MEDIUM;
+            default -> Size.LARGE;
+        };
+    };
 
     public int askOrderChoice() {
         String prompt = """
@@ -49,24 +59,29 @@ public class ConsoleOrderUI implements IOrderUI{
     public List<Topping> askToppings() {
         List<Topping> toppings = new ArrayList<>();
         ToppingEnum[] listOfToppings = ToppingEnum.values();
+
         boolean addingTopping = true;
+        for(int i = 0; i < listOfToppings.length; i++){
+            System.out.printf("%2d) %s%n", i + 1, listOfToppings[i].displayName());
+        }
 
         while (addingTopping){
-            for(int i = 0; i < listOfToppings.length; i++){
-                System.out.printf("%2d) %s%n", i + 1, listOfToppings[i].displayName());
-            }
+            int userChoice = Console.askForInt("Enter your choice: (Enter 0 to finish customizing your sandwich)", 0, listOfToppings.length);
 
-            int userChoice = Console.askForInt("Enter your choice:", 0, listOfToppings.length);
 
             if(userChoice == 0){
                 addingTopping = false;
+                System.out.println("Your selected toppings: ");
+                for (Topping t : toppings) {
+                    System.out.printf("\t - %-20s $%.2f%n", t.getTopping().displayName(), t.calculateCost(Size.LARGE));
+                }
             } else {
                 toppings.add(new Topping(listOfToppings[userChoice - 1]));
+
             }
 
 
         }
-        System.out.println("Added" + toppings);
         return toppings;
     }
 
