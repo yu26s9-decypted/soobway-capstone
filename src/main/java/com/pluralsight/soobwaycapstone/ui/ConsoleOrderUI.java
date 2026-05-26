@@ -3,7 +3,9 @@ package com.pluralsight.soobwaycapstone.ui;
 import com.pluralsight.soobwaycapstone.models.Side;
 import com.pluralsight.soobwaycapstone.models.Topping;
 import com.pluralsight.soobwaycapstone.models.enums.Size;
+import com.pluralsight.soobwaycapstone.models.enums.ToppingEnum;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConsoleOrderUI implements IOrderUI{
@@ -45,7 +47,27 @@ public class ConsoleOrderUI implements IOrderUI{
 
     @Override
     public List<Topping> askToppings() {
-        return List.of();
+        List<Topping> toppings = new ArrayList<>();
+        ToppingEnum[] listOfToppings = ToppingEnum.values();
+        boolean addingTopping = true;
+
+        while (addingTopping){
+            for(int i = 0; i < listOfToppings.length; i++){
+                System.out.printf("%2d) %s%n", i + 1, listOfToppings[i].displayName());
+            }
+
+            int userChoice = Console.askForInt("Enter your choice:", 0, listOfToppings.length);
+
+            if(userChoice == 0){
+                addingTopping = false;
+            } else {
+                toppings.add(new Topping(listOfToppings[userChoice - 1]));
+            }
+
+
+        }
+        System.out.println("Added" + toppings);
+        return toppings;
     }
 
     @Override

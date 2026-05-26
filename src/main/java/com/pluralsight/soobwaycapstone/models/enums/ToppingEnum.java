@@ -1,6 +1,6 @@
 package com.pluralsight.soobwaycapstone.models.enums;
 
-public enum Topping {
+public enum ToppingEnum {
     // Meats
     BACON(true, false),
     CHICKEN(true, false),
@@ -41,11 +41,20 @@ public enum Topping {
     MUSTARD(false, false),
     RANCH(false, false),
     SWEET_ONION(false, false);
-    private final boolean isMeat;
+    public final boolean isMeat;
     private final boolean isPremium;
 
-    Topping(boolean isMeat, boolean isPremium) {
+    ToppingEnum(boolean isMeat, boolean isPremium) {
         this.isMeat = isMeat;
         this.isPremium = isPremium;
     }
+
+    public boolean isMeat() { return isMeat; }
+    public boolean isPremium() { return isPremium; }
+
+    public String displayName(){
+        return name();
+    }
+
+
 }

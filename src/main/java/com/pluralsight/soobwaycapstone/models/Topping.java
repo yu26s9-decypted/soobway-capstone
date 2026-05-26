@@ -1,22 +1,37 @@
 package com.pluralsight.soobwaycapstone.models;
 
 import com.pluralsight.soobwaycapstone.models.enums.Size;
+import com.pluralsight.soobwaycapstone.models.enums.ToppingEnum;
 
 public class Topping {
-    String name;
-    boolean isPremium;
-    boolean isExtra;
-    boolean isMeat;
+   private ToppingEnum topping;
+   private boolean isExtra;
 
-    public Topping(String name, boolean isPremium, boolean isExtra, boolean isMeat) {
-        this.name = name;
-        this.isPremium = isPremium;
-        this.isExtra = isExtra;
-        this.isMeat = isMeat;
+    public Topping(ToppingEnum topping) {
+       this.topping = topping;
+       this.isExtra = false;
     }
 
+    public ToppingEnum getTopping() {
+        return topping;
+    }
+
+    public void setTopping(ToppingEnum topping) {
+        this.topping = topping;
+    }
+
+    public boolean isExtra() {
+        return isExtra;
+    }
+
+    public void setExtra(boolean extra) {
+        isExtra = extra;
+    }
+
+    public boolean isMeat() { return topping.isMeat(); }
+
     public double calculateCost(Size size){
-        if(isMeat){
+        if(topping.isMeat){
             if(isExtra){
                 return switch (size){
                     case SMALL -> 0.50;
@@ -32,5 +47,6 @@ public class Topping {
         }
         return 0.00;
     }
+
 
 }

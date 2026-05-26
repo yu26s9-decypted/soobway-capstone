@@ -1,6 +1,4 @@
 package com.pluralsight.soobwaycapstone;
-
-import com.pluralsight.soobwaycapstone.models.Order;
 import com.pluralsight.soobwaycapstone.ui.Console;
 import com.pluralsight.soobwaycapstone.ui.ConsoleOrderUI;
 
