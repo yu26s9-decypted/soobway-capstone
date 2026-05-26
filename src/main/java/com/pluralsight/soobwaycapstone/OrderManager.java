@@ -1,8 +1,6 @@
 package com.pluralsight.soobwaycapstone;
 
-import com.pluralsight.soobwaycapstone.models.Drink;
-import com.pluralsight.soobwaycapstone.models.Order;
-import com.pluralsight.soobwaycapstone.models.Sandwich;
+import com.pluralsight.soobwaycapstone.models.*;
 import com.pluralsight.soobwaycapstone.ui.IOrderUI;
 
 import java.time.LocalDateTime;
@@ -25,9 +23,9 @@ public class OrderManager {
         while (isOrdering) {
             switch (ui.askOrderChoice()) {
                 case 1 -> addSandwich(order);
-                case 2 -> addDrink
+                case 2 -> addDrink(order);
                 case 3 -> {break;}
-                case 4 -> {break;}
+                case 4 -> checkout(order);
                 case 0 -> {break;}
             }
         }
@@ -40,6 +38,37 @@ public class OrderManager {
 
     private void addDrink(Order order){
         order.addItem(new Drink(ui.askDrinkSize(), ui.askDrinkName()));
+        System.out.println("Drink was added");
+    }
+
+
+//    checkout
+
+
+    /**
+     * This displays the full order summary to the customer such as sandwich
+     * toppings, and etc. Prints a closing message when complete.
+     *
+     * @param order the current order containing all items to display
+     */
+    private void checkout(Order order){
+
+        for (Item i : order.getItem()) {
+            if (i instanceof Sandwich s) {
+                System.out.printf("\t Sandwich (%s) - Total Cost: $%.2f%n", s.getType(), s.calculatePrice());
+                System.out.println("your added toppings:");
+                for (Topping t : s.getTopping()) {
+                    System.out.printf("\t   + %-20s $%.2f%n", t.getTopping().displayName(), t.calculateCost(s.getSize()));
+                }
+            } else if (i instanceof Drink d) {
+                System.out.printf("\t Drink - %-15s $%.2f%n", d.getDrinkName(), d.calculatePrice());
+            } else if (i instanceof Side side) {
+                System.out.printf("\t Side  - %-15s $%.2f%n", side.getName(), side.calculatePrice());
+            }
+        }
+
+        System.out.println("\t ---------------------------");
+        System.out.println("\t  Thank you for choosing SOOBWAY!");
     }
 }
 

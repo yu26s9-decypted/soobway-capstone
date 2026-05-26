@@ -11,6 +11,10 @@ public class Sandwich extends Item{
         this.topping = topping;
     }
 
+    public List<Topping> getTopping() {
+        return topping;
+    }
+
     @Override
     public double calculatePrice() {
         double baseCost = switch (size){

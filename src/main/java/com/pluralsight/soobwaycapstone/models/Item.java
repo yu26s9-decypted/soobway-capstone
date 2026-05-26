@@ -31,13 +31,7 @@ public abstract class Item {
         this.type = type;
     }
 
-    public List<Topping> getTopping() {
-        return topping;
-    }
 
-    public void setTopping(List<Topping> topping) {
-        this.topping = topping;
-    }
 
     public boolean isSpecialOption() {
         return specialOption;

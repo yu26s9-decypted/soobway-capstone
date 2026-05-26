@@ -8,8 +8,8 @@ public class Side extends Item {
     String name;
     double price;
 
-    public Side(Size size, String type, List<Topping> topping, boolean specialOption, String name, double price) {
-        super(size, type, topping, specialOption);
+    public Side(Size size, String type, boolean specialOption, String name, double price) {
+        super(size, type, specialOption);
         this.name = name;
         this.price = price;
     }
