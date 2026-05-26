@@ -1,5 +1,6 @@
 package com.pluralsight.soobwaycapstone;
 
+import com.pluralsight.soobwaycapstone.models.Drink;
 import com.pluralsight.soobwaycapstone.models.Order;
 import com.pluralsight.soobwaycapstone.models.Sandwich;
 import com.pluralsight.soobwaycapstone.ui.IOrderUI;
@@ -24,7 +25,7 @@ public class OrderManager {
         while (isOrdering) {
             switch (ui.askOrderChoice()) {
                 case 1 -> addSandwich(order);
-                case 2 -> {break;}
+                case 2 -> addDrink
                 case 3 -> {break;}
                 case 4 -> {break;}
                 case 0 -> {break;}
@@ -35,6 +36,10 @@ public class OrderManager {
     private void addSandwich(Order order){
         order.addItem(new Sandwich(ui.askSize(), ui.askBreadType(), ui.askToppings(), ui.askToasted()));
         System.out.println("Order was added.");
+    }
+
+    private void addDrink(Order order){
+        order.addItem(new Drink(ui.askDrinkSize(), ui.askDrinkName()));
     }
 }
 

@@ -5,8 +5,10 @@ import com.pluralsight.soobwaycapstone.models.enums.Size;
 import java.util.List;
 
 public class Sandwich extends Item{
+    private final List<Topping> topping;
     public Sandwich(Size size, String type, List<Topping> topping, boolean specialOption) {
-        super(size, type, topping, specialOption);
+        super(size, type, specialOption);
+        this.topping = topping;
     }
 
     @Override

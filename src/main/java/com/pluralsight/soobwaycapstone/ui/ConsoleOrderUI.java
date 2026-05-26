@@ -87,12 +87,28 @@ public class ConsoleOrderUI implements IOrderUI{
 
     @Override
     public boolean askToasted() {
-        return false;
+        String choice = Console.askForString("Would you like it toasted? (y/n)");
+        return choice.equalsIgnoreCase("y");
     }
 
     @Override
     public String askDrinkName() {
-        return "";
+        String prompt = """
+            \t What drink would you like?
+            \t 1) Water
+            \t 2) Lemonade
+            \t 3) Soda
+            \t 4) Sprite
+            \t 5) Lemon Ice Tea
+             >""";
+        return switch (Console.askForInt(prompt, 1, 5)) {
+            case 1 -> "Water";
+            case 2 -> "Lemonade";
+            case 3 -> "Soda";
+            case 4 -> "Sprite";
+            case 5 -> "Lemon Ice Tea";
+            default -> null;
+        };
     }
 
     @Override

@@ -7,13 +7,11 @@ import java.util.List;
 public abstract class Item {
     Size size;
     String type;
-    List<Topping> topping;
     boolean specialOption;
 
-    public Item(Size size, String type, List<Topping> topping, boolean specialOption) {
+    public Item(Size size, String type, boolean specialOption) {
         this.size = size;
         this.type = type;
-        this.topping = topping;
         this.specialOption = specialOption;
     }
 
