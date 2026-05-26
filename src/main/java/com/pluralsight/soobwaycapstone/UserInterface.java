@@ -20,10 +20,16 @@ public class UserInterface {
 
             int userInput = Console.askForInt(m, 1, 2);
 
-
+            if (userInput == 1) {
+                processNewOrder();
+            } else {
+                System.out.println("Thank you!");
+                break;
+            }
         }
+    }
 
-
-
+    public void processNewOrder(){
+        System.out.println("What would you like to order?");
     }
 }
