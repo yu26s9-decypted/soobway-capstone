@@ -1,11 +1,17 @@
 package com.pluralsight.soobwaycapstone;
 
 
+import com.pluralsight.soobwaycapstone.ui.Console;
+
 public class Main
 {
     public static void main(String[] args)
     {
         boolean useGui = false;
+        String option = Console.askForString("This Capstone features a GUI. Would you like to launch the GUI version? (y/n)");
+        if(option.equalsIgnoreCase("y")){
+             useGui = true;
+        }
 
         if(useGui)
         {
@@ -13,6 +19,7 @@ public class Main
         }
         else
         {
+
             UserInterface userInterface = new UserInterface();
             userInterface.display();
         }

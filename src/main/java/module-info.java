@@ -10,6 +10,8 @@ module com.pluralsight.soobwaycapstone {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires atlantafx.base;
+    requires com.fasterxml.jackson.databind;
 
     opens com.pluralsight.soobwaycapstone to javafx.fxml;
     exports com.pluralsight.soobwaycapstone;
