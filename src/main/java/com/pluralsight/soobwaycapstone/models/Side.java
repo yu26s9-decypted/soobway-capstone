@@ -1,15 +1,11 @@
 package com.pluralsight.soobwaycapstone.models;
 
-import com.pluralsight.soobwaycapstone.models.enums.Size;
-
-import java.util.List;
-
 public class Side extends Item {
     String name;
     double price;
 
-    public Side(Size size, String type, boolean specialOption, String name, double price) {
-        super(size, type, specialOption);
+    public Side(String name, double price) {
+        super(null, "Side", false);
         this.name = name;
         this.price = price;
     }
@@ -32,6 +28,6 @@ public class Side extends Item {
 
     @Override
     public double calculatePrice() {
-        return 0;
+        return price;
     }
 }

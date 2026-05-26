@@ -30,10 +30,10 @@ public class Topping {
 
     public boolean isMeat() { return topping.isMeat(); }
 
-    public double calculateCost(Size size){
-        if(topping.isMeat){
-            if(isExtra){
-                return switch (size){
+    public double calculateCost(Size size) {
+        if (topping.isMeat()) {
+            if (isExtra) {
+                return switch (size) {
                     case SMALL -> 0.50;
                     case MEDIUM -> 1.00;
                     case LARGE -> 1.50;
@@ -43,6 +43,20 @@ public class Topping {
                 case SMALL -> 1.00;
                 case MEDIUM -> 2.00;
                 case LARGE -> 3.00;
+            };
+        }
+        if (topping.isPremium()) {
+            if (isExtra) {
+                return switch (size) {
+                    case SMALL -> 0.30;
+                    case MEDIUM -> 0.60;
+                    case LARGE -> 0.90;
+                };
+            }
+            return switch (size) {
+                case SMALL -> 0.75;
+                case MEDIUM -> 1.50;
+                case LARGE -> 2.25;
             };
         }
         return 0.00;

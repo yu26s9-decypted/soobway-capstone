@@ -2,6 +2,7 @@ package com.pluralsight.soobwaycapstone.ui;
 
 import com.pluralsight.soobwaycapstone.models.Side;
 import com.pluralsight.soobwaycapstone.models.Topping;
+import com.pluralsight.soobwaycapstone.models.enums.SideEnum;
 import com.pluralsight.soobwaycapstone.models.enums.Size;
 import com.pluralsight.soobwaycapstone.models.enums.ToppingEnum;
 
@@ -113,11 +114,29 @@ public class ConsoleOrderUI implements IOrderUI{
 
     @Override
     public Size askDrinkSize() {
-        return null;
+        String prompt = """
+            \t What drink size would you like:
+            \t 1) Small  - $1.50
+            \t 2) Medium - $2.00
+            \t 3) Large  - $2.50
+             > """;
+        return switch (Console.askForInt(prompt, 1, 3)) {
+            case 1 -> Size.SMALL;
+            case 2 -> Size.MEDIUM;
+            default -> Size.LARGE;
+        };
     }
 
     @Override
     public Side askSide() {
-        return null;
+        SideEnum[] sides = SideEnum.values();
+
+        for (int i = 0; i < sides.length; i++) {
+            System.out.printf("\t %d) %-20s $%.2f%n", i + 1, sides[i].displayName(), sides[i].getPrice());
+        }
+
+        int choice = Console.askForInt("Enter your choice", 1, sides.length);
+        SideEnum selected = sides[choice - 1];
+        return new Side(selected.displayName(), selected.getPrice());
     }
 }

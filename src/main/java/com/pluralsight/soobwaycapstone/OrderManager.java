@@ -24,7 +24,7 @@ public class OrderManager {
             switch (ui.askOrderChoice()) {
                 case 1 -> addSandwich(order);
                 case 2 -> addDrink(order);
-                case 3 -> {break;}
+                case 3 -> addSide(order);
                 case 4 -> checkout(order);
                 case 0 -> {break;}
             }
@@ -39,6 +39,11 @@ public class OrderManager {
     private void addDrink(Order order){
         order.addItem(new Drink(ui.askDrinkSize(), ui.askDrinkName()));
         System.out.println("Drink was added");
+    }
+
+    private void addSide(Order order){
+        order.addItem(ui.askSide());
+        System.out.println("Side was added");
     }
 
 

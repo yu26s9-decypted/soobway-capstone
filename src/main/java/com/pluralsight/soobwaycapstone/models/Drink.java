@@ -4,6 +4,7 @@ import com.pluralsight.soobwaycapstone.models.enums.Size;
 
 public class Drink extends Item{
     private String drinkName;
+    private double price;
 
     public Drink(Size size, String drinkName) {
        super(size, "Drink", false );
@@ -14,7 +15,11 @@ public class Drink extends Item{
 
     @Override
     public double calculatePrice() {
-        return 0;
+        return switch (size) {
+            case SMALL -> 1.50;
+            case MEDIUM -> 2.00;
+            case LARGE -> 2.50;
+        };
     }
 
     public String getDrinkName() {
