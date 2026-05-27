@@ -57,23 +57,30 @@ public class OrderManager {
      * @param order the current order containing all items to display
      */
     private void checkout(Order order){
-
+        double totalPrice = 0;
         for (Item i : order.getItem()) {
             if (i instanceof Sandwich s) {
                 System.out.printf("\t Sandwich (%s) - Total Cost: $%.2f%n", s.getType(), s.calculatePrice());
                 System.out.println("your added toppings:");
+                totalPrice += s.calculatePrice();
                 for (Topping t : s.getTopping()) {
                     System.out.printf("\t   + %-20s $%.2f%n", t.getTopping().displayName(), t.calculateCost(s.getSize()));
+                    totalPrice += s.calculatePrice();
                 }
             } else if (i instanceof Drink d) {
                 System.out.printf("\t Drink - %-15s $%.2f%n", d.getDrinkName(), d.calculatePrice());
+                totalPrice += d.calculatePrice();
             } else if (i instanceof Side side) {
                 System.out.printf("\t Side  - %-15s $%.2f%n", side.getName(), side.calculatePrice());
+                totalPrice += side.calculatePrice();
             }
+
+
         }
 
         System.out.println("\t ---------------------------");
         System.out.println("\t  Thank you for choosing SOOBWAY!");
+        Reciept.saveReciept(order, totalPrice);
     }
 }
 

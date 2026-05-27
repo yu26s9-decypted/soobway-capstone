@@ -1,0 +1,1 @@
+Subway Order com.pluralsight.soobwaycapstone.RecieptOrder Date: 20260527-104222.txtSandwich (Selected White) - $4.50+ PICKLES - $0.00+ MUSTARD - $0.00+ HAM - $1.00Drink (Water) - $1.50Side (LAYS_CHIPS) - $1.00-----------------------------------Total: $20.50
