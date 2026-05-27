@@ -1,6 +1,7 @@
 package com.pluralsight.soobwaycapstone;
 
 import com.pluralsight.soobwaycapstone.models.*;
+import com.pluralsight.soobwaycapstone.ui.Console;
 import com.pluralsight.soobwaycapstone.ui.IOrderUI;
 
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 
 
 public class OrderManager {
+    boolean isOrdering = true;
     private final IOrderUI ui;
     int orderNumber = (int) (Math.random() * 9000 + 1000);
 
@@ -19,7 +21,6 @@ public class OrderManager {
     public void processNewOrder() {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         Order order = new Order(new ArrayList<>(), timestamp);
-        boolean isOrdering = true;
 
         while (isOrdering) {
             switch (ui.askOrderChoice()) {
@@ -27,7 +28,11 @@ public class OrderManager {
                 case 2 -> addDrink(order);
                 case 3 -> addSide(order);
                 case 4 -> checkout(order);
-                case 0 -> {break;}
+                case 0 -> {
+                    order.getItem().clear();
+                    System.out.println("The order was cancelled.");
+                    isOrdering = false;
+                }
             }
         }
     }
@@ -46,10 +51,6 @@ public class OrderManager {
         order.addItem(ui.askSide());
         System.out.println("Side was added");
     }
-
-
-//    checkout
-
 
     /**
      * This displays the full order summary to the customer such as sandwich
@@ -82,11 +83,18 @@ public class OrderManager {
 
 
         }
+        String confirm = Console.askForString("Would you like to checkout with the following? (y/n)");
+        if (confirm.equalsIgnoreCase("y")) {
+            System.out.println("\t Thank you for choosing SOOBWAY!");
+            System.out.println(Reciept.saveReciept(order, totalPrice));
+            isOrdering = false;
 
-        System.out.println("\t ---------------------------");
-        System.out.println("\t  Thank you for choosing SOOBWAY!");
-        Reciept.saveReciept(order, totalPrice);
+        } else {
+            System.out.println("Returning to order menu.");
+        }
     }
+
+
 
 
 }

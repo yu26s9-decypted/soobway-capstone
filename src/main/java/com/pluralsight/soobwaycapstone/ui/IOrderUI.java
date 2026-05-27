@@ -8,8 +8,8 @@ import com.pluralsight.soobwaycapstone.models.enums.Size;
 import java.util.List;
 
 public interface IOrderUI {
-    Size askSize();
     int askOrderChoice();
+    Size askSize();
     String askBreadType();
     List<Topping> askToppings();
     boolean askToasted();

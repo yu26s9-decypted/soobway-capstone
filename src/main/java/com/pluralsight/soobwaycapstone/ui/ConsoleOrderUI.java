@@ -10,21 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConsoleOrderUI implements IOrderUI{
-    @Override
-    public Size askSize() {
-        String prompt = """
-            \t Choose a size:
-            \t 1) Small  - $3.50
-            \t 2) Medium - $6.50
-            \t 3) Large  - $9.50
-            >""";
-        return switch (Console.askForInt(prompt, 1, 3)) {
-            case 1 -> Size.SMALL;
-            case 2 -> Size.MEDIUM;
-            default -> Size.LARGE;
-        };
-    };
-
     public int askOrderChoice() {
         String prompt = """
             \t 1) Add Sandwich
@@ -33,8 +18,24 @@ public class ConsoleOrderUI implements IOrderUI{
             \t 4) Checkout
             \t 0) Cancel
              > """;
-        return Console.askForInt(prompt, 1, 4);
+        return Console.askForInt(prompt, 0, 4);
     }
+
+    @Override
+    public Size askSize() {
+        String prompt = """
+            \t Choose a size: Leave empty for medium.
+            \t 1) Small  - $3.50
+            \t 2) Medium - $6.50
+            \t 3) Large  - $9.50
+            >""";
+        return switch (Console.askForInt(prompt, 1, 3)) {
+            case 1 -> Size.SMALL;
+            case 2 -> Size.MEDIUM;
+            case 3 -> Size.LARGE;
+            default -> Size.MEDIUM;
+        };
+    };
 
     @Override
     public String askBreadType() {

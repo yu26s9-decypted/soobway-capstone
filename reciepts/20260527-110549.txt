@@ -1,0 +1,8 @@
+Subway Order Reciept Order Date: 5/27/26 - 11:05AMSandwich (Selected Artisan Italian) - $14.75
++ MUSTARD - $0.00
++ LETTUCE - $0.00
++ ONION - $0.00
++ ONION - $0.00
++ STEAK - $3.00
++ AVOCADO - $2.25
+-----------------------------------%nTotal: $88.50
