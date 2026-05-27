@@ -67,6 +67,10 @@ public class OrderManager {
                checkDup.put(t.getTopping(), t);
            }
         }
+
+        if(toasted){
+            breadType = String.format("%s (Toasted)", breadType);
+        }
         order.addItem(new Sandwich(size, breadType, new ArrayList<>(checkDup.values()), toasted));
         System.out.println("Order was added.");
     }

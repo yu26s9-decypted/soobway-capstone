@@ -1,0 +1,19 @@
+============================
+        SOOBWAY
+============================
+  5/27/26 - 01:15PM
+----------------------------
+
+  Sandwich (Selected Artisan Italian)
+    + MAYO               $0.00
+    + HAM                $1.00
+    + MUSTARD            $0.00
+    + CHICKEN            $1.00
+    + BACON              $1.00
+  Sandwich Total       $6.50
+
+----------------------------
+  ORDER TOTAL          $6.50
+============================
+  Thanks for choosing SOOBWAY!
+============================
