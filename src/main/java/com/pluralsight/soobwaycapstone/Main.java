@@ -19,7 +19,11 @@ public class Main
         }
         else
         {
-
+            try {
+                Database.testConnection();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
             UserInterface userInterface = new UserInterface();
             userInterface.display();
         }
