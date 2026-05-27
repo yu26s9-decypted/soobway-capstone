@@ -22,6 +22,7 @@
     <Label text="Awaiting Payment..." style="-fx-font-size: 20px; -fx-font-weight: bold;" fx:id="paymentStatus"/>
     <Label text="Tap or insert card to complete order." style="-fx-text-fill: #888;"/>
     <Button onAction="#simulatePayment" styleClass="btn-paysimulation">simulate payment</Button>
+    <Button onAction="#simulateFailedPayment" styleClass="btn-failedpaysimulation">simulate failed payment</Button>
     <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
         <padding><Insets top="12" left="16" right="16" bottom="12"/></padding>
         <Button text="← Back" styleClass="btn-void" onAction="#onBack" alignment="BOTTOM_RIGHT"/>

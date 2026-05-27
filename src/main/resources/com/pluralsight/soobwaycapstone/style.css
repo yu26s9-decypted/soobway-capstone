@@ -206,7 +206,14 @@
     -fx-background-radius: 8px;
     -fx-cursor: hand;
 }
-
+.btn-failedpaysimulation {
+    -fx-background-color: #E90206;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
 .error-text{
     -fx-text-fill: #e53935;
     -fx-font-size: 12px;

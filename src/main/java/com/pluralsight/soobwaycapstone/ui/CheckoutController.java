@@ -76,4 +76,29 @@ public class CheckoutController {
     private void onBack() {
         content.getChildren().setAll(parentController.getMainGrid());
     }
+
+    public void simulateFailedPayment() {
+        paymentIcon.setImage(new Image(HelloApplication.class.getResourceAsStream("asset/spinner.png")));
+        paymentStatus.setText("Processing payment...");
+        RotateTransition spin = new RotateTransition(Duration.millis(800), paymentIcon);
+        spin.setByAngle(360);
+        spin.setCycleCount(RotateTransition.INDEFINITE);
+        spin.play();
+
+        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
+        pauseTransition.setOnFinished(e -> {
+            var soundUrl = HelloApplication.class.getResource("asset/FailedPayment.mp3");
+            if (soundUrl != null) {
+                AudioClip clip = new AudioClip(soundUrl.toString());
+                clip.play();
+            }
+
+            spin.stop();
+            paymentIcon.setRotate(0);
+            paymentIcon.setImage(new Image(HelloApplication.class.getResourceAsStream("asset/Failed.png")));
+            paymentStatus.setText("Payment Failed.");
+
+        });
+        pauseTransition.play();
+    }
 }
