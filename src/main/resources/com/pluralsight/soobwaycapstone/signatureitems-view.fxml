@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Region?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.pluralsight.soobwaycapstone.ui.SignatureController"
+      fx:controller="com.pluralsight.soobwaycapstone.Controllers.SignatureController"
       styleClass="root-container" spacing="0" prefHeight="620" prefWidth="900"
       stylesheets="@style.css">
 

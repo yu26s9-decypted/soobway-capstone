@@ -1,4 +1,4 @@
-package com.pluralsight.soobwaycapstone.ui;
+package com.pluralsight.soobwaycapstone.Controllers;
 
 import com.pluralsight.soobwaycapstone.HelloApplication;
 import com.pluralsight.soobwaycapstone.OrderSession;
@@ -7,7 +7,6 @@ import com.pluralsight.soobwaycapstone.models.Discount;
 import com.pluralsight.soobwaycapstone.models.Item;
 import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -15,8 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
-
-import java.io.IOException;
 
 public class CheckoutController {
 

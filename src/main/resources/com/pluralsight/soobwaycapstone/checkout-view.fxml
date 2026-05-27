@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.pluralsight.soobwaycapstone.ui.CheckoutController"
+      fx:controller="com.pluralsight.soobwaycapstone.Controllers.CheckoutController"
       alignment="CENTER" spacing="16" VBox.vgrow="ALWAYS" fx:id="receiptContainer">
 
     <ImageView fitWidth="130" fitHeight="50" preserveRatio="true" fx:id="paymentIcon">

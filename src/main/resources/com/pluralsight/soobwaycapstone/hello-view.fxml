@@ -12,7 +12,7 @@
 
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.pluralsight.soobwaycapstone.ui.HelloController"
+      fx:controller="com.pluralsight.soobwaycapstone.Controllers.HelloController"
       styleClass="root-container" prefHeight="620" prefWidth="900">
 
     <!-- Left sidebar - order summary -->
@@ -75,6 +75,7 @@
 
                 <Button text="Drink" styleClass="tile-orange"
                         prefWidth="190" prefHeight="90"
+                        onAction="#onDrinkSelection"
                         GridPane.columnIndex="2" GridPane.rowIndex="0"/>
 
                 <Button text="Side" styleClass="tile-yellow"

@@ -1,15 +1,13 @@
-package com.pluralsight.soobwaycapstone.ui;
+package com.pluralsight.soobwaycapstone.Controllers;
 
 import com.pluralsight.soobwaycapstone.HelloApplication;
 import com.pluralsight.soobwaycapstone.OrderSession;
 import com.pluralsight.soobwaycapstone.models.Item;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -44,8 +42,19 @@ public class HelloController {
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("signatureitems-view.fxml"));
         VBox signatureView = loader.load();
         SignatureController signatureController = loader.getController();
-        content.getChildren().setAll(signatureView);
         signatureController.setParentController(this, content);
+        content.getChildren().setAll(signatureView);
+
+    }
+
+    @FXML
+    private void onDrinkSelection() throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("drinks-view.fxml"));
+        VBox drinksView = loader.load();
+        DrinksController drinksController = loader.getController();
+        drinksController.setParentController(this, content);
+        content.getChildren().setAll(drinksView);
+
     }
 
     @FXML
