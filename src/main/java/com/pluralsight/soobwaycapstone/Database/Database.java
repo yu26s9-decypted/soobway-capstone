@@ -36,6 +36,7 @@ public class Database {
                     return new User(
                             result.getString("id"),
                             result.getString("username"),
+                            result.getString("email"),
                             result.getString("joined_at"),
                             result.getString("tier")
                     );
@@ -49,7 +50,32 @@ public class Database {
     }
 
 
+    public static User getUserByEmail(String email) throws SQLException {
+        Connection connection = connect();
 
+        try {
+            var statement = connection.prepareStatement("SELECT * FROM users WHERE email = ?");
+            statement.setString(1, email);
+            var result = statement.executeQuery();
 
-
+            if (result.next()) {
+                return new User(
+                        result.getString("id"),
+                        result.getString("username"),
+                        result.getString("email"),
+                        result.getString("joined_at"),
+                        result.getString("tier")
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+    } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return null;
+    }
 }

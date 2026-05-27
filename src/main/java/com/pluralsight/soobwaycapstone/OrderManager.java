@@ -1,11 +1,13 @@
 package com.pluralsight.soobwaycapstone;
 
+import com.pluralsight.soobwaycapstone.Database.Database;
 import com.pluralsight.soobwaycapstone.models.*;
 import com.pluralsight.soobwaycapstone.models.enums.Size;
 import com.pluralsight.soobwaycapstone.models.enums.ToppingEnum;
 import com.pluralsight.soobwaycapstone.ui.Console;
 import com.pluralsight.soobwaycapstone.ui.IOrderUI;
 
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -86,18 +88,42 @@ public class OrderManager {
      * @param order the current order containing all items to display
      */
     private void checkout(Order order){
+        User user = null;
         if(order.getItem().isEmpty()) {
             System.out.println("You have no items so far. Please add a drink or side before checking out.");
             return;
         }
 
+        double discount = 0.00;
+        String promptForEmail = Console.askForString("Would you like to enter your email for member discounts (or press Enter to skip)");
+        if(!promptForEmail.isBlank()){
+            try {
+                user = Database.getUserByEmail(promptForEmail);
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            if(user != null){
+                discount = switch (user.getMembershipTier()){
+                    case "BASIC" -> 0.05;
+                    case "REWARDS" -> 0.15;
+                    default -> 0.00;
+                };
+                System.out.printf("Welcome back %s (%s)! Thank you for being a %s member. Your %.0f%% discount will be applied on checkout.%n",
+                        user.getUsername(),
+                        user.getEmail(),
+                        user.getMembershipTier(),
+                        discount * 100);
+            } else {
+                System.out.println("Email does not exist.");
+            }
+        }
         System.out.printf("Order #%d", orderNumber);
         double totalPrice = displayOrderedItem(order);
 
         String confirm = Console.askForString("Would you like to checkout with the following? (y/n)");
         if (confirm.equalsIgnoreCase("y")) {
             System.out.println("\t Thank you for choosing SOOBWAY!");
-            System.out.println(Reciept.saveReciept(order, totalPrice));
+            System.out.println(RecieptManager.saveReciept(order, totalPrice));
             isOrdering = false;
 
         } else {

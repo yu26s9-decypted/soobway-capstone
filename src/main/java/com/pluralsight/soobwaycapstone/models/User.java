@@ -4,13 +4,16 @@ public class User {
     String uuid;
     String username;
     String joinedAt;
+    String email;
     String membershipTier;
 
-    public User(String uuid, String username, String joinedAt, String membershipTier) {
+    public User(String uuid, String username, String email, String joinedAt, String membershipTier) {
         this.uuid = uuid;
         this.username = username;
+        this.email = email;
         this.joinedAt = joinedAt;
         this.membershipTier = membershipTier;
+
     }
 
     public String getUuid() {
@@ -27,6 +30,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getJoinedAt() {

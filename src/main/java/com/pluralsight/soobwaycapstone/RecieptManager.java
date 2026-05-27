@@ -6,11 +6,10 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Reciept {
+public class RecieptManager {
     public static String saveReciept(Order order, double priceOfOrder){
         LocalDateTime now = LocalDateTime.now();
         String displayDate = now.format(DateTimeFormatter.ofPattern("M/d/yy - hh:mma"));
