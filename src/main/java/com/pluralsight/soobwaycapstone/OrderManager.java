@@ -109,51 +109,64 @@ public class OrderManager {
      */
     private void checkout(Order order){
         User user = null;
+        double totalPrice;
+        Discount discount = Discount.none();
+
         if(order.getItem().isEmpty()) {
             System.out.println("You have no items so far. Please add a drink or side before checking out.");
             return;
         }
 
-        double discount = 0.00;
+
         String promptForEmail = Console.askForString("Would you like to enter your email for member discounts (or press Enter to skip)");
         if(!promptForEmail.isBlank()){
-            try {
-                user = Database.getUserByEmail(promptForEmail);
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-            if(user != null){
-                discount = switch (user.getMembershipTier()){
-                    case "BASIC" -> 0.05;
-                    case "REWARDS" -> 0.15;
-                    default -> 0.00;
-                };
-                System.out.printf("Welcome back %s (%s)! Thank you for being a %s member. Your %.0f%% discount will be applied on checkout.%n",
-                        user.getUsername(),
-                        user.getEmail(),
-                        user.getMembershipTier(),
-                        discount * 100);
-            } else {
-                System.out.println("Email does not exist.");
-            }
+           try {
+               user = Database.getUserByEmail(promptForEmail);
+           } catch (SQLException e) {
+               System.out.println(e.getMessage());
+           }
+            discount = user != null ? Discount.forUser(user) : Discount.none();
         }
-        double totalPrice = order.getItem().stream()
+         double subtotal = order.getItem().stream()
                 .mapToDouble(Item::calculatePrice)
                 .sum();
 
-        System.out.println(RecieptManager.buildReceipt(order, totalPrice,
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/yy - hh:mma")), orderNumber));
+         totalPrice = discount.applyDiscount(subtotal);
+
+
+        System.out.println(RecieptManager.buildReceipt(order, totalPrice, subtotal,
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/yy - hh:mma")), orderNumber, discount, user));
 
 
         String confirm = Console.askForString("Would you like to checkout with the following? (y/n)");
         if (confirm.equalsIgnoreCase("y")) {
             System.out.println("\t Thank you for choosing SOOBWAY!");
-            System.out.println(RecieptManager.saveReciept(order, totalPrice, orderNumber));
+            System.out.println(RecieptManager.saveReciept(order, totalPrice, subtotal, orderNumber, discount, user));
             isOrdering = false;
 
         } else {
             System.out.println("Returning to order menu.");
         }
+    }
+
+    public static void addPresetSandwich(Order order, PresetSandwichEnum preset, Size size) {
+        String breadType = preset.displayName + " | " + preset.bread;
+        List<Topping> toppings = preset.toppings.stream()
+                .map(Topping::new)
+                .toList();
+
+        Map<ToppingEnum, Topping> checkDup = new HashMap<>();
+        for (Topping t : toppings) {
+            if (checkDup.containsKey(t.getTopping())) {
+                Topping exist = checkDup.get(t.getTopping());
+                exist.setExtra(true);
+                exist.addCount();
+            } else {
+                checkDup.put(t.getTopping(), t);
+            }
+        }
+
+        order.addItem(new Sandwich(size, breadType, new ArrayList<>(checkDup.values()), false));
     }
 
 

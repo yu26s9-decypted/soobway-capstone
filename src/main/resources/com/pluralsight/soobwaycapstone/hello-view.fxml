@@ -44,24 +44,24 @@
                 <Label fx:id="totallabel" text="0.00" styleClass="total-value"/>
             </HBox>
         </VBox>
-
-        <Button text="Checkout" styleClass="btn-pay" maxWidth="Infinity" prefHeight="48"/>
+        <Label fx:id="errorText"/>
+        <Button text="Checkout" styleClass="btn-pay" maxWidth="Infinity" prefHeight="48" onAction="#onCheckOut"/>
         <Button text="Discount" styleClass="btn-discount" maxWidth="Infinity" prefHeight="36">
             <VBox.margin><Insets top="8"/></VBox.margin>
         </Button>
 
     </VBox>
 
-    <VBox HBox.hgrow="ALWAYS" styleClass="main-content" fx:id="content">
-
+    <VBox HBox.hgrow="ALWAYS" styleClass="main-content">
         <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
             <padding><Insets top="12" left="16" right="16" bottom="12"/></padding>
             <Label text="New Order" styleClass="top-bar-title"/>
             <Region HBox.hgrow="ALWAYS"/>
-            <Button text="Cancel Order" styleClass="btn-void"/>
+            <Button text="Cancel Order" styleClass="btn-void" onAction="#onCancelOrder"/>
         </HBox>
 
-        <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 16;">
+        <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 16;" fx:id="content">
+            <VBox fx:id="mainGrid" VBox.vgrow="ALWAYS" style="-fx-padding: 16;">
             <GridPane hgap="10" vgap="10">
 
                 <Button text="Sandwich" styleClass="tile-green"
@@ -90,6 +90,7 @@
                         GridPane.columnIndex="2" GridPane.rowIndex="1"/>
 
             </GridPane>
+            </VBox>
         </VBox>
 
     </VBox>

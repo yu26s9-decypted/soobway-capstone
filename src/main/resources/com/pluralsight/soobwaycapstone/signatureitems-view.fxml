@@ -5,11 +5,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Region?>
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.pluralsight.soobwaycapstone.ui.SignatureController"
       styleClass="root-container" spacing="0" prefHeight="620" prefWidth="900"
       stylesheets="@style.css">
+
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                    style="-fx-background-color: transparent; -fx-background: transparent;">
+            <FlowPane fx:id="presetList" hgap="12" vgap="12">
+                <padding><Insets top="16" left="16" right="16" bottom="16"/></padding>
+            </FlowPane>
+    </ScrollPane>
+    <Region VBox.vgrow="ALWAYS"/>
 
     <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
         <padding><Insets top="12" left="16" right="16" bottom="12"/></padding>
@@ -17,9 +29,5 @@
         <Label text="Signature Sandwiches" styleClass="top-bar-title" style="-fx-padding: 0 0 0 12;"/>
     </HBox>
 
-    <VBox fx:id="presetList" spacing="10" VBox.vgrow="ALWAYS">
-        <padding><Insets top="16" left="16" right="16" bottom="16"/></padding>
-        <Label text="Signature sandwiches will appear here." styleClass="sidebar-empty"/>
-    </VBox>
 
 </VBox>

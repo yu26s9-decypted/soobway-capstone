@@ -1,0 +1,97 @@
+==================================================
+                S O O B W A Y
+==================================================
+  Order #4701
+==================================================
+  5/27/26 - 05:44PM
+==================================================
+
+  Sandwich
+    + (M)Andy's Special | Artisan Italian $6.50
+    + JALAPENOS                    $0.00
+    + LETTUCE                      $0.00
+    + BACON                        $2.00
+    + RANCH                        $0.00
+    + CHICKEN                      $2.00
+  Total -                        $10.50
+
+  Sandwich
+    + (M)The Sam-I-Am | Honey Wheat   $6.50
+    + LETTUCE                      $0.00
+    + TURKEY                       $2.00
+    + SWISS                        $1.50
+    + TOMATO                       $0.00
+    + HAM                          $2.00
+    + MAYO                         $0.00
+    + AVOCADO                      $1.50
+  Total -                        $13.50
+
+  Sandwich
+    + (M)Matt's Debugger | White Italian $6.50
+    + CHEDDAR                      $1.50
+    + JALAPENOS                    $0.00
+    + PEPPERONI                    $2.00
+    + BACON                        $2.00
+    + RANCH                        $0.00
+    + STEAK                        $2.00
+  Total -                        $14.00
+
+  Sandwich
+    + (M)Sayed's Fire Hazard | Flatbread $6.50
+    + JALAPENOS                    $0.00
+    + PEPPER_JACK                  $1.50
+    + BUFFALO                      $0.00
+    + ONION                        $0.00
+    + STEAK                        $2.00
+    + BANANA_PEPPERS               $0.00
+  Total -                        $10.00
+
+  Sandwich
+    + (M)Jayln Da Goat | Artisan Italian $6.50
+    + CHEDDAR                      $1.50
+    + LETTUCE                      $0.00
+    + TOMATO                       $0.00
+    + BACON                        $2.00
+    + RANCH                        $0.00
+    + STEAK                        $2.00
+  Total -                        $12.00
+
+  Sandwich
+    + (M)Mayo Is Life | White Italian $6.50
+    + MAYO + extra (x10)           $0.00
+  Total -                        $6.50
+
+  Sandwich
+    + (M)The StackOverflow | Artisan Italian $6.50
+    + CHEDDAR                      $1.50
+    + LETTUCE                      $0.00
+    + TURKEY                       $2.00
+    + PEPPER_JACK                  $1.50
+    + PEPPERONI                    $2.00
+    + SWISS                        $1.50
+    + TOMATO                       $0.00
+    + HAM                          $2.00
+    + ONION                        $0.00
+    + BACON                        $2.00
+    + STEAK                        $2.00
+    + CHICKEN                      $2.00
+  Total -                        $23.00
+
+  Sandwich
+    + (M)Sahar's Supreme | Artisan Italian $6.50
+    + LETTUCE                      $0.00
+    + GUACAMOLE                    $1.50
+    + TOMATO                       $0.00
+    + BACON                        $2.00
+    + RANCH                        $0.00
+    + STEAK                        $2.00
+    + MOZZARELLA                   $1.50
+    + ROASTED_PEPPERS              $1.50
+    + PICKLES                      $0.00
+  Total -                        $15.00
+
+==================================================
+  ORDER TOTAL                    $104.50
+==================================================
+    Thanks for choosing SOOBWAY!
+==================================================
