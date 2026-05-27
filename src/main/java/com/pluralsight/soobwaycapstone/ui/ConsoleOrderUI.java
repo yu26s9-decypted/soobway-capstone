@@ -73,10 +73,6 @@ public class ConsoleOrderUI implements IOrderUI{
 
             if(userChoice == 0){
                 addingTopping = false;
-                System.out.println("Your selected toppings: ");
-                for (Topping t : toppings) {
-                    System.out.printf("\t - %-20s $%.2f%n", t.getTopping().displayName(), t.calculateCost(Size.LARGE));
-                }
             } else {
                 toppings.add(new Topping(listOfToppings[userChoice - 1]));
 
@@ -89,7 +85,7 @@ public class ConsoleOrderUI implements IOrderUI{
 
     @Override
     public boolean askToasted() {
-        String choice = Console.askForString("Would you like it toasted? (y/n)");
+        String choice = Console.askForString("Would you like it toasted? (y or empty for no)");
         return choice.equalsIgnoreCase("y");
     }
 

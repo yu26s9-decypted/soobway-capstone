@@ -1,12 +1,17 @@
 package com.pluralsight.soobwaycapstone;
 
 import com.pluralsight.soobwaycapstone.models.*;
+import com.pluralsight.soobwaycapstone.models.enums.Size;
+import com.pluralsight.soobwaycapstone.models.enums.ToppingEnum;
 import com.pluralsight.soobwaycapstone.ui.Console;
 import com.pluralsight.soobwaycapstone.ui.IOrderUI;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class OrderManager {
@@ -38,7 +43,29 @@ public class OrderManager {
     }
 
     private void addSandwich(Order order){
-        order.addItem(new Sandwich(ui.askSize(), ui.askBreadType(), ui.askToppings(), ui.askToasted()));
+        Size size = ui.askSize();
+        String breadType = ui.askBreadType();
+        boolean toasted = ui.askToasted();
+        List<Topping> toppings = ui.askToppings();
+
+
+        /**
+         * key is the topping type, value is the Topping object.
+         * If a topping is added twice, the original will marked as extra.
+         */
+        Map<ToppingEnum, Topping> checkDup = new HashMap<>();
+
+        for(Topping t : toppings){
+           if(checkDup.containsKey(t.getTopping())){
+               Topping exist = checkDup.get(t.getTopping());
+               exist.setExtra(true);
+               exist.addCount();
+
+           } else {
+               checkDup.put(t.getTopping(), t);
+           }
+        }
+        order.addItem(new Sandwich(size, breadType, new ArrayList<>(checkDup.values()), toasted));
         System.out.println("Order was added.");
     }
 
@@ -59,30 +86,14 @@ public class OrderManager {
      * @param order the current order containing all items to display
      */
     private void checkout(Order order){
-        double totalPrice = 0;
         if(order.getItem().isEmpty()) {
             System.out.println("You have no items so far. Please add a drink or side before checking out.");
             return;
         }
+
         System.out.printf("Order #%d", orderNumber);
-        for (Item i : order.getItem()) {
-            if (i instanceof Sandwich s) {
-                System.out.printf("\t Sandwich (%s) - Total Cost: $%.2f%n", s.getType(), s.calculatePrice());
-                System.out.println("your added toppings:");
-                for (Topping t : s.getTopping()) {
-                    System.out.printf("\t   + %-20s $%.2f%n", t.getTopping().displayName(), t.calculateCost(s.getSize()));
-                    totalPrice += s.calculatePrice();
-                }
-            } else if (i instanceof Drink d) {
-                System.out.printf("\t Drink - %-15s $%.2f%n", d.getDrinkName(), d.calculatePrice());
-                totalPrice += d.calculatePrice();
-            } else if (i instanceof Side side) {
-                System.out.printf("\t Side  - %-15s $%.2f%n", side.getName(), side.calculatePrice());
-                totalPrice += side.calculatePrice();
-            }
+        double totalPrice = displayOrderedItem(order);
 
-
-        }
         String confirm = Console.askForString("Would you like to checkout with the following? (y/n)");
         if (confirm.equalsIgnoreCase("y")) {
             System.out.println("\t Thank you for choosing SOOBWAY!");
@@ -92,6 +103,32 @@ public class OrderManager {
         } else {
             System.out.println("Returning to order menu.");
         }
+    }
+
+    public double displayOrderedItem(Order order) {
+        double totalPrice = 0;
+
+        for (Item i : order.getItem()) {
+            if (i instanceof Sandwich s) {
+                System.out.printf("\t Sandwich (%s) - Total Cost: $%.2f%n", s.getType(), s.calculatePrice());
+                System.out.println("\t your added toppings:");
+                totalPrice += s.calculatePrice();
+                for (Topping t : s.getTopping()) {
+                    String count = t.getCount() > 1 ? " (x" + t.getCount() + ")" : "";
+                    String eLabel = t.isExtra() ? "EXTRA " + t.getTopping().displayName() : t.getTopping().displayName();
+                    System.out.printf("\t+ %-20s $%.2f%n", eLabel + count, t.calculateCost(s.getSize()));
+
+                }
+            } else if (i instanceof Drink d) {
+                System.out.printf("\t Drink - %-15s $%.2f%n", d.getDrinkName(), d.calculatePrice());
+                totalPrice += d.calculatePrice();
+            } else if (i instanceof Side side) {
+                System.out.printf("\t Side  - %-15s $%.2f%n", side.getName(), side.calculatePrice());
+                totalPrice += side.calculatePrice();
+            }
+        }
+
+        return totalPrice;
     }
 
 
