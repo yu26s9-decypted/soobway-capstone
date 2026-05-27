@@ -20,4 +20,6 @@ module com.pluralsight.soobwaycapstone {
     opens com.pluralsight.soobwaycapstone.ui to javafx.fxml;
     exports com.pluralsight.soobwaycapstone.models;
     exports com.pluralsight.soobwaycapstone.models.enums;
+    exports com.pluralsight.soobwaycapstone.Database;
+    opens com.pluralsight.soobwaycapstone.Database to javafx.fxml;
 }

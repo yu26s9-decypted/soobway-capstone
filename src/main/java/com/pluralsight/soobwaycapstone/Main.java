@@ -1,6 +1,7 @@
 package com.pluralsight.soobwaycapstone;
 
 
+import com.pluralsight.soobwaycapstone.Database.Database;
 import com.pluralsight.soobwaycapstone.ui.Console;
 
 public class Main
@@ -21,6 +22,7 @@ public class Main
         {
             try {
                 Database.testConnection();
+                System.out.println(Database.getUser());
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
