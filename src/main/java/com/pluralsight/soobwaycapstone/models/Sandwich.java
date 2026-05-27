@@ -15,6 +15,22 @@ public class Sandwich extends Item{
         return topping;
     }
 
+    public double getBaseCost(){
+        return switch (size){
+            case SMALL -> 3.50;
+            case MEDIUM -> 6.50;
+            case LARGE -> 9.50;
+        };
+    }
+
+    public String getSandwichSize(){
+        return switch (size){
+            case SMALL -> "S";
+            case MEDIUM -> "M";
+            case LARGE -> "L";
+        };
+    }
+
     @Override
     public double calculatePrice() {
         double baseCost = switch (size){

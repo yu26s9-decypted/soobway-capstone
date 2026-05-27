@@ -2,6 +2,7 @@ package com.pluralsight.soobwaycapstone.ui;
 
 import com.pluralsight.soobwaycapstone.models.Side;
 import com.pluralsight.soobwaycapstone.models.Topping;
+import com.pluralsight.soobwaycapstone.models.enums.PresetSandwichEnum;
 import com.pluralsight.soobwaycapstone.models.enums.Size;
 
 
@@ -16,4 +17,8 @@ public interface IOrderUI {
     String askDrinkName();
     Size askDrinkSize();
     Side askSide();
+
+    boolean askIsPreset();
+
+    PresetSandwichEnum askPreset();
 }

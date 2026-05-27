@@ -94,6 +94,26 @@ public class Console {
         }
     }
 
+    public static int askForIntOptional(String prompt, int min, int max, int defaultValue) {
+        while (true) {
+            System.out.print(prompt);
+            String input = scanner.nextLine().trim();
+
+            if (input.isBlank()) return defaultValue;
+
+            try {
+                int result = Integer.parseInt(input);
+                if (result >= min && result <= max) {
+                    return result;
+                } else {
+                    System.out.printf("Please enter a number between %d and %d\n", min, max);
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Must be a number.\n");
+            }
+        }
+    }
+
 
 
 }

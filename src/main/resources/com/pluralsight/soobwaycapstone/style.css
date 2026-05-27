@@ -1,0 +1,151 @@
+.root-container {
+    -fx-background-color: #f5f5f5;
+}
+
+.sidebar {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar-heading {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+}
+
+.sidebar-empty {
+    -fx-font-size: 13px;
+    -fx-text-fill: #aaa;
+}
+
+.total-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #555;
+}
+
+.total-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111;
+}
+
+.order-num {
+    -fx-font-size: 12px;
+    -fx-text-fill: #888;
+}
+
+.top-bar {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1 0;
+}
+
+.top-bar-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111;
+}
+
+.main-content {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Colored tiles like Toast */
+.tile-green {
+    -fx-background-color: #4caf50;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+.tile-green:hover { -fx-background-color: #43a047; }
+
+.tile-blue {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+.tile-blue:hover { -fx-background-color: #1e88e5; }
+
+.tile-orange {
+    -fx-background-color: #ff9800;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+.tile-orange:hover { -fx-background-color: #fb8c00; }
+
+.tile-yellow {
+    -fx-background-color: #ffeb3b;
+    -fx-text-fill: #333;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+.tile-yellow:hover { -fx-background-color: #fdd835; }
+
+.tile-purple {
+    -fx-background-color: #9c27b0;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+.tile-purple:hover { -fx-background-color: #8e24aa; }
+
+.tile-default {
+    -fx-background-color: white;
+    -fx-text-fill: #333;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+}
+.tile-default:hover { -fx-background-color: #f5f5f5; }
+
+.btn-pay {
+    -fx-background-color: #1976d2;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+.btn-pay:hover { -fx-background-color: #1565c0; }
+
+.btn-discount {
+    -fx-background-color: white;
+    -fx-text-fill: #1976d2;
+    -fx-font-size: 13px;
+    -fx-border-color: #1976d2;
+    -fx-border-width: 1px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.btn-void {
+    -fx-background-color: white;
+    -fx-text-fill: #e53935;
+    -fx-border-color: #e53935;
+    -fx-border-width: 1px;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+.btn-void:hover {
+    -fx-background-color: #ffebee;
+}

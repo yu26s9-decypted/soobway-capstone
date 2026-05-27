@@ -2,12 +2,14 @@ package com.pluralsight.soobwaycapstone.ui;
 
 import com.pluralsight.soobwaycapstone.models.Side;
 import com.pluralsight.soobwaycapstone.models.Topping;
+import com.pluralsight.soobwaycapstone.models.enums.PresetSandwichEnum;
 import com.pluralsight.soobwaycapstone.models.enums.SideEnum;
 import com.pluralsight.soobwaycapstone.models.enums.Size;
 import com.pluralsight.soobwaycapstone.models.enums.ToppingEnum;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ConsoleOrderUI implements IOrderUI{
     public int askOrderChoice() {
@@ -47,12 +49,11 @@ public class ConsoleOrderUI implements IOrderUI{
                 \t 4) Artisan Italian
                 \t Leave empty for Artisan Italian
                 """;
-        return switch (Console.askForInt(prompt, 1, 6)) {
-            case 1 -> "Selected White";
-            case 2 -> "Selected Wheat";
-            case 3 -> "Selected Flatbread";
-            case 4 -> "Selected Artisan Italian";
-            default -> "Selected Artisan Italian";
+        return switch (Console.askForIntOptional(prompt, 1, 4, 4)) {
+            case 1 -> "White Italian";
+            case 2 -> "Honey Wheat";
+            case 3 -> "Flatbread";
+            default -> "Artisan Italian";
         };
 
     }
@@ -135,5 +136,31 @@ public class ConsoleOrderUI implements IOrderUI{
         int choice = Console.askForInt("Enter your choice", 1, sides.length);
         SideEnum selected = sides[choice - 1];
         return new Side(selected.displayName(), selected.getPrice());
+    }
+
+    @Override
+    public boolean askIsPreset() {
+        String choice = Console.askForString("Do you want our selected preset sandwich or build your own? (y or leave empty)");
+        return choice.equalsIgnoreCase("y");
+    }
+
+    @Override
+    public PresetSandwichEnum askPreset() {
+        PresetSandwichEnum[] presets = PresetSandwichEnum.values();
+        for (int i = 0; i < presets.length; i++) {
+            System.out.printf(" %d) %-25s: %s | %s | %n\t[Ingredients: %s]%n",
+                    i + 1,
+                    presets[i].displayName,
+                    presets[i].description,
+                    presets[i].bread,
+                    presets[i].toppings.stream()
+                            .map(ToppingEnum::displayName)
+                            .distinct()
+                            .collect(Collectors.joining(", ")));
+            System.out.printf("=".repeat(100) + "\n");
+        }
+
+        int choice = Console.askForInt("Enter your choice", 1, presets.length);
+        return presets[choice - 1];
     }
 }

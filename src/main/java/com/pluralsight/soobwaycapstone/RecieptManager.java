@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class RecieptManager {
-    public static String saveReciept(Order order, double priceOfOrder) {
+    public static String saveReciept(Order order, double priceOfOrder, int orderNumber) {
         LocalDateTime now = LocalDateTime.now();
         String displayDate = now.format(DateTimeFormatter.ofPattern("M/d/yy - hh:mma"));
         String fn = now.format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
@@ -23,43 +23,48 @@ public class RecieptManager {
         File receiptFile = new File(dir, fn);
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(receiptFile))) {
-            bw.write(buildReceipt(order, priceOfOrder, displayDate));
+            bw.write(buildReceipt(order, priceOfOrder, displayDate, orderNumber));
             return String.format("Receipt saved: %s  (path: %s)%n", receiptFile.getName(), receiptFile.getPath());
         } catch (IOException e) {
             return "Failed to save receipt: " + e.getMessage();
         }
     }
 
-    private static String buildReceipt(Order order, double total, String date) {
+    public static String buildReceipt(Order order, double total, String date, int orderNumber) {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("=\n".repeat(50));
-        sb.append("        SOOBWAY\n");
-        sb.append("=\n".repeat(50));
+        sb.append("=".repeat(50)).append("\n");
+        sb.append("                S O O B W A Y\n");
+        sb.append("=".repeat(50)).append("\n");
+        sb.append(String.format("  Order #%d%n", orderNumber));
+        sb.append("=".repeat(50)).append("\n");
         sb.append("  ").append(date).append("\n");
-        sb.append("=\n".repeat(50));
+        sb.append("=".repeat(50)).append("\n\n");
 
         for (Item i : order.getItem()) {
             if (i instanceof Sandwich s) {
-                sb.append(String.format("  Sandwich (%s)%n", s.getType()));
+                sb.append(String.format("  Sandwich%n"));
+                sb.append(String.format("    + (%s)%-28s $%.2f%n", s.getSandwichSize(), s.getType(), s.getBaseCost()));
                 for (Topping t : s.getTopping()) {
-                    String count = t.getCount() > 1 ? " (x" + t.getCount() + ")" : "";
-                    String eLabel = t.isExtra() ? "EXTRA " + t.getTopping().displayName() : t.getTopping().displayName();
-                    sb.append(String.format("    + %-18s $%.2f%n", eLabel + count, t.calculateCost(s.getSize())));
+                    String eLabel = t.isExtra()
+                            ? t.getTopping().displayName() + " + extra (x" + (t.getCount() - 1) + ")"
+                            : t.getTopping().displayName();
+                    sb.append(String.format("    + %-28s $%.2f%n", eLabel, t.calculateCost(s.getSize())));
                 }
-                sb.append(String.format("  %-20s $%.2f%n", "Sandwich Total", s.calculatePrice()));
+                sb.append(String.format("  %-30s $%.2f%n", "Total -", s.calculatePrice()));
             } else if (i instanceof Drink d) {
-                sb.append(String.format("  Drink - %-14s $%.2f%n", d.getDrinkName(), d.calculatePrice()));
+                sb.append(String.format("  %-30s $%.2f%n", "Drink - " + d.getDrinkName(), d.calculatePrice()));
             } else if (i instanceof Side side) {
-                sb.append(String.format("  Side  - %-14s $%.2f%n", side.getName(), side.calculatePrice()));
+                sb.append(String.format("  %-30s $%.2f%n", "Side  - " + side.getName(), side.calculatePrice()));
             }
+            sb.append("\n");
         }
 
-        sb.append("=\n".repeat(50));
-        sb.append(String.format("  %-20s $%.2f%n", "ORDER TOTAL", total));
-        sb.append("=\n".repeat(50));
-        sb.append("  Thanks for choosing SOOBWAY!\n");
-        sb.append("=\n".repeat(50));
+        sb.append("=".repeat(50)).append("\n");
+        sb.append(String.format("  %-30s $%.2f%n", "ORDER TOTAL", total));
+        sb.append("=".repeat(50)).append("\n");
+        sb.append("    Thanks for choosing SOOBWAY!\n");
+        sb.append("=".repeat(50)).append("\n");
 
         return sb.toString();
     }

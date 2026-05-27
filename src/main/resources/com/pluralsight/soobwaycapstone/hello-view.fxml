@@ -1,16 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.pluralsight.soobwaycapstone.ui.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.pluralsight.soobwaycapstone.ui.HelloController"
+      styleClass="root-container" prefHeight="620" prefWidth="900">
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <!-- Left sidebar - order summary -->
+    <VBox styleClass="sidebar" minWidth="280" maxWidth="280">
+        <padding><Insets top="16" left="16" right="16" bottom="16"/></padding>
+
+        <ImageView fitWidth="130" fitHeight="50" preserveRatio="true">
+            <image><Image url="@asset/SOOBWAY1.png"/></image>
+        </ImageView>
+
+        <HBox alignment="CENTER_LEFT" style="-fx-padding: 12 0 4 0;">
+            <Label text="Employee On Shift" styleClass="sidebar-heading"/>
+            <Label fx:id="employeeLabel" text="Nelson" styleClass="sidebar-heading"/>
+        </HBox>
+
+        <Separator/>
+
+        <!-- Order items -->
+        <VBox fx:id="orderItemList" spacing="8" VBox.vgrow="ALWAYS" style="-fx-padding: 10 0 0 0;">
+            <Label text="No items added yet." styleClass="sidebar-empty"/>
+        </VBox>
+
+        <Separator style="-fx-padding: 8 0 4 0;"/>
+
+        <VBox spacing="4" style="-fx-padding: 8 0 12 0;">
+            <HBox>
+                <Label text="total" styleClass="total-label"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="totallabel" text="0.00" styleClass="total-value"/>
+            </HBox>
+        </VBox>
+
+        <Button text="Checkout" styleClass="btn-pay" maxWidth="Infinity" prefHeight="48"/>
+        <Button text="Discount" styleClass="btn-discount" maxWidth="Infinity" prefHeight="36">
+            <VBox.margin><Insets top="8"/></VBox.margin>
+        </Button>
+
+    </VBox>
+
+    <VBox HBox.hgrow="ALWAYS" styleClass="main-content" fx:id="content">
+
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
+            <padding><Insets top="12" left="16" right="16" bottom="12"/></padding>
+            <Label text="New Order" styleClass="top-bar-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Cancel Order" styleClass="btn-void"/>
+        </HBox>
+
+        <VBox VBox.vgrow="ALWAYS" style="-fx-padding: 16;">
+            <GridPane hgap="10" vgap="10">
+
+                <Button text="Sandwich" styleClass="tile-green"
+                        prefWidth="190" prefHeight="90"
+                        GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+                <Button text="Signature" styleClass="tile-blue"
+                        prefWidth="190" prefHeight="90"
+                        onAction="#onSignature"
+                        GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Button text="Drink" styleClass="tile-orange"
+                        prefWidth="190" prefHeight="90"
+                        GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+                <Button text="Side" styleClass="tile-yellow"
+                        prefWidth="190" prefHeight="90"
+                        GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+                <Button text="View Order" styleClass="tile-purple"
+                        prefWidth="190" prefHeight="90"
+                        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Button text="Member" styleClass="tile-default"
+                        prefWidth="190" prefHeight="90"
+                        GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+            </GridPane>
+        </VBox>
+
+    </VBox>
+</HBox>
