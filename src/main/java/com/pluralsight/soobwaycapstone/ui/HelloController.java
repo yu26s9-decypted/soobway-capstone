@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -60,6 +61,11 @@ public class HelloController {
             return;
         }
         errorText.setText("");
+        var soundUrl = HelloApplication.class.getResource("asset/InsertCash.mp3");
+        if (soundUrl != null) {
+            AudioClip clip = new AudioClip(soundUrl.toString());
+            clip.play();
+        }
         FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("checkout-view.fxml"));
         VBox checkoutView = loader.load();
         CheckoutController checkoutController = loader.getController();

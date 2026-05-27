@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -41,6 +42,12 @@ public class CheckoutController {
 
         PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2));
         pauseTransition.setOnFinished(e -> {
+            var soundUrl = HelloApplication.class.getResource("asset/PaymentSuccess.mp3");
+            if (soundUrl != null) {
+                AudioClip clip = new AudioClip(soundUrl.toString());
+                clip.play();
+            }
+
             spin.stop();
             paymentIcon.setRotate(0);
             paymentIcon.setImage(new Image(HelloApplication.class.getResourceAsStream("asset/checkmark.png")));

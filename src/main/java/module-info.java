@@ -13,6 +13,7 @@ module com.pluralsight.soobwaycapstone {
     requires atlantafx.base;
     requires com.fasterxml.jackson.databind;
     requires java.sql;
+    requires javafx.media;
 
     opens com.pluralsight.soobwaycapstone to javafx.fxml;
     exports com.pluralsight.soobwaycapstone;
