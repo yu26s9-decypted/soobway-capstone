@@ -9,7 +9,8 @@ import java.util.ArrayList;
 
 
 public class OrderManager {
-    private IOrderUI ui;
+    private final IOrderUI ui;
+    int orderNumber = (int) (Math.random() * 9000 + 1000);
 
     public OrderManager(IOrderUI ui){
         this.ui = ui;
@@ -58,11 +59,15 @@ public class OrderManager {
      */
     private void checkout(Order order){
         double totalPrice = 0;
+        if(order.getItem().isEmpty()) {
+            System.out.println("You have no items so far. Please add a drink or side before checking out.");
+            return;
+        }
+        System.out.printf("Order #%d", orderNumber);
         for (Item i : order.getItem()) {
             if (i instanceof Sandwich s) {
                 System.out.printf("\t Sandwich (%s) - Total Cost: $%.2f%n", s.getType(), s.calculatePrice());
                 System.out.println("your added toppings:");
-                totalPrice += s.calculatePrice();
                 for (Topping t : s.getTopping()) {
                     System.out.printf("\t   + %-20s $%.2f%n", t.getTopping().displayName(), t.calculateCost(s.getSize()));
                     totalPrice += s.calculatePrice();
@@ -82,5 +87,7 @@ public class OrderManager {
         System.out.println("\t  Thank you for choosing SOOBWAY!");
         Reciept.saveReciept(order, totalPrice);
     }
+
+
 }
 

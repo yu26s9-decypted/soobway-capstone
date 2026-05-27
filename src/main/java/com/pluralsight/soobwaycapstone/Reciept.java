@@ -6,12 +6,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Reciept {
     public static String saveReciept(Order order, double priceOfOrder){
         LocalDateTime now = LocalDateTime.now();
+        String displayDate = now.format(DateTimeFormatter.ofPattern("M/d/yy - hh:mma"));
         String fn = now.format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
 
         File file = new File("reciepts");
@@ -26,8 +28,8 @@ public class Reciept {
 
         try {
             StringBuilder sb = new StringBuilder();
-            sb.append("Subway Order com.pluralsight.soobwaycapstone.Reciept");
-            sb.append(String.format("Order Date: %s", fn));
+            sb.append("Subway Order Reciept ");
+            sb.append(String.format("Order Date: %s", displayDate));
 
             for (Item i : order.getItem()) {
                 if (i instanceof Sandwich s){
@@ -43,6 +45,7 @@ public class Reciept {
             }
 
             sb.repeat("-", 35);
+            sb.append("%n");
             sb.append(String.format("Total: $%,.2f%n", priceOfOrder));
 
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(newRecieptFile));

@@ -1,0 +1,11 @@
+Subway Order com.pluralsight.soobwaycapstone.RecieptOrder Date: 20260527-104758.txtSandwich (Selected Artisan Italian) - $6.50
++ BACON - $1.00
++ CHICKEN - $1.00
++ HAM - $1.00
++ MUSTARD - $0.00
+Sandwich (Selected Artisan Italian) - $3.50
++ BANANA_PEPPERS - $0.00
++ BLACK_OLIVES - $0.00
++ CUCUMBER - $0.00
++ GREEN_PEPPERS - $0.00
+-----------------------------------Total: $50.00
