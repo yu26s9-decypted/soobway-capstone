@@ -40,7 +40,7 @@ public class HelloController {
             total += item.calculatePrice();
         }
 
-        totallabel.setText(String.format("%.2f", total));
+        totallabel.setText(String.format("$%,.2f", total));
     }
 
     @FXML
