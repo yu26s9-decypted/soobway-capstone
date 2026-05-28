@@ -46,7 +46,7 @@
         </VBox>
         <Label fx:id="errorText"/>
         <Button text="Checkout" styleClass="btn-pay" maxWidth="Infinity" prefHeight="48" onAction="#onCheckOut"/>
-        <Button text="Discount" styleClass="btn-discount" maxWidth="Infinity" prefHeight="36">
+        <Button text="Discount" styleClass="btn-discount" maxWidth="Infinity" prefHeight="36" fx:id="discountBtn">
             <VBox.margin><Insets top="8"/></VBox.margin>
         </Button>
 

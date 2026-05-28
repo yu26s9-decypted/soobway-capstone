@@ -56,6 +56,7 @@ public class SignatureController {
             presetList.getChildren().add(row);
 
             row.setOnMouseClicked(e -> {
+                HelloController.playInteractionFeedback();
                 OrderManager.addPresetSandwich(OrderSession.getOrder(), preset, Size.MEDIUM);
                 if (parentController != null) parentController.refreshSidebar();
             });

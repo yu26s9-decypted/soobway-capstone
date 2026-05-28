@@ -1,0 +1,63 @@
+==================================================
+                S O O B W A Y
+==================================================
+  Order #9066
+==================================================
+  5/28/26 - 07:00PM
+==================================================
+
+  Sandwich
+    + (M)(Toasted) The Sam-I-Am | Honey Wheat $6.50
+    + HAM                          $2.00
+    + TOMATO                       $0.00
+    + MAYO                         $0.00
+    + TURKEY                       $2.00
+    + SWISS                        $1.50
+    + LETTUCE                      $0.00
+    + AVOCADO                      $1.50
+  Total -                        $13.50
+
+  Sandwich
+    + (M)(Toasted) Andy's Special | Artisan Italian $6.50
+    + RANCH                        $0.00
+    + JALAPENOS                    $0.00
+    + BACON                        $2.00
+    + CHICKEN                      $2.00
+    + LETTUCE                      $0.00
+  Total -                        $10.50
+
+  Sandwich
+    + (M)Matt's Debugger | White Italian $6.50
+    + RANCH                        $0.00
+    + JALAPENOS                    $0.00
+    + BACON                        $2.00
+    + STEAK                        $2.00
+    + PEPPERONI                    $2.00
+    + CHEDDAR                      $1.50
+  Total -                        $14.00
+
+  Drink - Water                  $2.00
+
+  Side  - CHOCOLATE_COOKIE       $1.50
+
+  Side  - LAYS_CHIPS             $1.00
+
+  Side  - APPLE_SLICES           $0.75
+
+  Side  - YOGURT_PARFAIT         $2.00
+
+  Side  - OATMEAL_COOKIE         $1.50
+
+  Side  - CHOCOLATE_COOKIE       $1.50
+
+  Side  - LAYS_CHIPS             $1.00
+
+  Side  - DORITOS                $1.00
+
+  Side  - OATMEAL_COOKIE         $1.50
+
+==================================================
+  ORDER TOTAL                    $51.75
+==================================================
+    Thanks for choosing SOOBWAY!
+==================================================

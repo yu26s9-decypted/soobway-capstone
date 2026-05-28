@@ -45,6 +45,7 @@ public class DrinksController {
             presetList.getChildren().add(row);
 
             row.setOnMouseClicked(e -> {
+                HelloController.playInteractionFeedback();
                 OrderSession.getOrder().addItem(new Drink(Size.MEDIUM, d.displayName));
                 if (parentController != null) parentController.refreshSidebar();
 

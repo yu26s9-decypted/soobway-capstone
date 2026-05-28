@@ -40,6 +40,7 @@ public class SideController {
             presetList.getChildren().add(row);
 
             row.setOnMouseClicked(e -> {
+                HelloController.playInteractionFeedback();
                 OrderSession.getOrder().addItem(new Side(d.displayName(), d.getPrice()));
                 if (parentController != null) parentController.refreshSidebar();
             });

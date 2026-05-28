@@ -2,17 +2,23 @@ package com.pluralsight.soobwaycapstone.Controllers;
 
 import com.pluralsight.soobwaycapstone.HelloApplication;
 import com.pluralsight.soobwaycapstone.OrderSession;
+import com.pluralsight.soobwaycapstone.models.Discount;
 import com.pluralsight.soobwaycapstone.models.Item;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HelloController {
     public Label errorText;
+    public Button discountBtn;
     @FXML
     private Label welcomeText;
 
@@ -43,6 +49,7 @@ public class HelloController {
         VBox signatureView = loader.load();
         SignatureController signatureController = loader.getController();
         signatureController.setParentController(this, content);
+        playInteractionFeedback();
         content.getChildren().setAll(signatureView);
 
     }
@@ -53,6 +60,7 @@ public class HelloController {
         VBox drinksView = loader.load();
         DrinksController drinksController = loader.getController();
         drinksController.setParentController(this, content);
+        playInteractionFeedback();
         content.getChildren().setAll(drinksView);
 
     }
@@ -63,6 +71,7 @@ public class HelloController {
         VBox sideView = loader.load();
         SideController sideController = loader.getController();
         sideController.setParentController(this, content);
+        playInteractionFeedback();
         content.getChildren().setAll(sideView);
 
     }
@@ -91,5 +100,13 @@ public class HelloController {
         content.getChildren().setAll(checkoutView);
         checkoutController.setParentController(this, content);
 
+    }
+
+    public static void playInteractionFeedback(){
+        var soundUrl = HelloApplication.class.getResource("asset/interface-feedback.mp3");
+        if (soundUrl != null) {
+            AudioClip clip = new AudioClip(soundUrl.toString());
+            clip.play();
+        }
     }
 }
