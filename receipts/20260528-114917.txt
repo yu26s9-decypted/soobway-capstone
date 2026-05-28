@@ -1,0 +1,61 @@
+==================================================
+                S O O B W A Y
+==================================================
+  Order #9399
+==================================================
+  5/28/26 - 11:49AM
+==================================================
+
+  Sandwich
+    + (M)Joffre's Forehead | Flatbread $6.50
+    + SUN_DRIED_TOMATOES           $1.50
+    + AVOCADO                      $1.50
+    + GUACAMOLE                    $1.50
+    + ROASTED_PEPPERS              $1.50
+    + MOZZARELLA                   $1.50
+    + PROVOLONE                    $1.50
+  Total -                        $15.50
+
+  Sandwich
+    + (M)Janice Sandwich | Artisan Italian $6.50
+    + AVOCADO                      $1.50
+    + MAYO                         $0.00
+    + STEAK                        $2.00
+  Total -                        $10.00
+
+  Sandwich
+    + (M)Sayed's Fire Hazard | Flatbread $6.50
+    + JALAPENOS                    $0.00
+    + BUFFALO                      $0.00
+    + BANANA_PEPPERS               $0.00
+    + PEPPER_JACK                  $1.50
+    + STEAK                        $2.00
+    + ONION                        $0.00
+  Total -                        $10.00
+
+  Sandwich
+    + (M)Sahar's Supreme | Artisan Italian $6.50
+    + LETTUCE                      $0.00
+    + GUACAMOLE                    $1.50
+    + BACON                        $2.00
+    + ROASTED_PEPPERS              $1.50
+    + TOMATO                       $0.00
+    + PICKLES                      $0.00
+    + RANCH                        $0.00
+    + STEAK                        $2.00
+    + MOZZARELLA                   $1.50
+  Total -                        $15.00
+
+  Drink - Soda                   $2.00
+
+  Drink - Lemon Ice Tea          $2.00
+
+  Side  - OATMEAL_COOKIE         $1.50
+
+  Side  - CHOCOLATE_COOKIE       $1.50
+
+==================================================
+  ORDER TOTAL                    $57.50
+==================================================
+    Thanks for choosing SOOBWAY!
+==================================================

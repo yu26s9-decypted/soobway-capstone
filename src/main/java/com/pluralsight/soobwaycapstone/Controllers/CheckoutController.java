@@ -7,6 +7,7 @@ import com.pluralsight.soobwaycapstone.models.Discount;
 import com.pluralsight.soobwaycapstone.models.Item;
 import javafx.animation.PauseTransition;
 import javafx.animation.RotateTransition;
+import javafx.animation.SequentialTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -50,7 +51,7 @@ public class CheckoutController {
             paymentIcon.setRotate(0);
             paymentIcon.setImage(new Image(HelloApplication.class.getResourceAsStream("asset/checkmark.png")));
             paymentStatus.setText("Payment Accepted.");
-            paymentsubtext.setText("Transaction was completed.");
+            paymentsubtext.setText("Transaction completed.");
 
             double totalPrice = OrderSession.getOrder().getItem().stream()
                             .mapToDouble(Item::calculatePrice)
@@ -62,10 +63,22 @@ public class CheckoutController {
             Label result = new Label(r);
             receiptContainer.getChildren().add(result);
 
-
-
             OrderSession.resetOrder();
             parentController.refreshSidebar();
+            SequentialTransition sequentialTransition = new SequentialTransition();
+
+            for(int i = 5; i > 0; i--){
+                final int count = i;
+                PauseTransition p = new PauseTransition(Duration.seconds(1));
+                p.setOnFinished(event ->
+                        paymentsubtext.setText("Returning you to the Menu Start POS Screen in" + (count - 1)));
+                sequentialTransition.getChildren().add(p);
+            }
+
+            sequentialTransition.setOnFinished(ev -> {
+                content.getChildren().setAll(parentController.getMainGrid());
+            });
+            sequentialTransition.play();
 
         });
         pauseTransition.play();
