@@ -46,8 +46,8 @@ public class ConsoleOrderUI implements IOrderUI{
     public String askBreadType() {
         String prompt = """
                 \t What type of bread would you like?
-                \t 1) White
-                \t 2) Wheat
+                \t 1) White Italian
+                \t 2) Honey Wheat
                 \t 3) Flatbread
                 \t 4) Artisan Italian
                 \t Leave empty for Artisan Italian

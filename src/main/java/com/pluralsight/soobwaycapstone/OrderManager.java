@@ -200,7 +200,14 @@ public class OrderManager {
 
         switch (ui.askSandwichToEditChoices()){
             case 1 -> {
-                selected.setSize(ui.askSize());
+                Size updatedSize =ui.askSize();
+                selected.setSize(updatedSize);
+                System.out.println("%s size has been switched to " + updatedSize);
+            }
+            case 2 -> {
+                String breadType = ui.askBreadType();
+                selected.setType(breadType);
+                System.out.println("%s size has been switched to " + breadType);
             }
         }
 
