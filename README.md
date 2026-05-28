@@ -34,9 +34,9 @@
 
 - A POS design inspired off of Toast, Inc. 
 - Includes layout with a persistent order/checkout sidebar
-- Content-swap navigation — sidebar state never lost between screens
-- A SCUFFED Animated? checkout simulation with a : spinner animation with checkmark on payment confirmation and x on payment failure.
-- Audio feedback base on interactions taken
+- Content-swap navigation where the order sidebar state won't be lost
+- A SCUFFED Animation? with a checkout simulation with a : spinner animation with checkmark on payment confirmation and x on payment failure.
+- Audio feedback base on interactions taken in the GUI
 - Receipt saves to file on order completion
 
 -----
