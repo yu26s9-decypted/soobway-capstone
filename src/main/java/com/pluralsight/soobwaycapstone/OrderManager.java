@@ -30,7 +30,7 @@ public class OrderManager {
     public void processNewOrder() {
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         Order order = new Order(new ArrayList<>(), timestamp);
-
+        isOrdering = true;
         while (isOrdering) {
             switch (ui.askOrderChoice()) {
                 case 1 -> addSandwich(order);
