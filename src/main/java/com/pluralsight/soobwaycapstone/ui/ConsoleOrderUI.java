@@ -181,4 +181,15 @@ public class ConsoleOrderUI implements IOrderUI{
         }
         return Console.askForInt("Select your choice" , 0, size);
     }
+
+    public int askSandwichToEditChoices(){
+        String m = """
+                \t What would you like to change about the sandwich?
+                \t 1) Size
+                \t 2) Bread Type
+                \t 3) Topping
+                \t 4) Toasted
+                """;
+        return Console.askForInt(m, 1,4);
+    }
 }

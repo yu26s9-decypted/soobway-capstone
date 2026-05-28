@@ -198,6 +198,12 @@ public class OrderManager {
 
         System.out.println(selected);
 
+        switch (ui.askSandwichToEditChoices()){
+            case 1 -> {
+                selected.setSize(ui.askSize());
+            }
+        }
+
 
 
     }
