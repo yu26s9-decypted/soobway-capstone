@@ -174,6 +174,10 @@ public class ConsoleOrderUI implements IOrderUI{
         System.out.println("Which Sandwich would you like to modify?");
         for (Sandwich s : sandwiches) {
             System.out.printf("\t %d) [%s] %s - [toppings: %s] ",count++, s.getSize(), s.getType(), s.getTopping());
+
+            if(sandwiches.isEmpty()){
+                System.out.println("You haven't customize your sandwich yet!");
+            }
         }
         return Console.askForInt("Select your choice" , 0, size);
     }

@@ -45,4 +45,9 @@ public class Sandwich extends Item{
         }
         return baseCost + toppingCost;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s - %s | %s", size, type, topping);
+    }
 }

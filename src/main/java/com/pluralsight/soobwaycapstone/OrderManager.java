@@ -193,7 +193,12 @@ public class OrderManager {
                 .map(item -> (Sandwich) item)
                 .toList();
 
-        int choice = ui.askSandwichToEdit(sandwiches);
+        int choice = ui.askSandwichToEdit(sandwiches) - 1;
+        Sandwich selected = sandwiches.get(choice);
+
+        System.out.println(selected);
+
+
 
     }
 }
