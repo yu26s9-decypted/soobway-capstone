@@ -4,6 +4,7 @@ import atlantafx.base.theme.PrimerLight;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,6 +32,7 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
+        stage.getIcons().add(new Image(HelloApplication.class.getResourceAsStream("asset/Soobway.png")));
     }
 
 }
