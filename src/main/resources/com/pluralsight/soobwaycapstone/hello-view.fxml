@@ -82,14 +82,6 @@
                         prefWidth="190" prefHeight="90"
                         GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 
-                <Button text="View Order" styleClass="tile-purple"
-                        prefWidth="190" prefHeight="90"
-                        GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-
-                <Button text="Member" styleClass="tile-default"
-                        prefWidth="190" prefHeight="90"
-                        GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-
             </GridPane>
             </VBox>
         </VBox>

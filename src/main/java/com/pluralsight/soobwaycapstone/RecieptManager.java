@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class RecieptManager {
-    public static String saveReciept(Order order, double total, double subtotal, int orderNumber, Discount discount, User user) {
+    public static String saveReciept(Order order, double total, int orderNumber, Discount discount, User user) {
         LocalDateTime now = LocalDateTime.now();
         String displayDate = now.format(DateTimeFormatter.ofPattern("M/d/yy - hh:mma"));
         String fn = now.format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss")) + ".txt";
@@ -23,14 +23,14 @@ public class RecieptManager {
         File receiptFile = new File(dir, fn);
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(receiptFile))) {
-            bw.write(buildReceipt(order, total, subtotal, displayDate, orderNumber, discount, user));
+            bw.write(buildReceipt(order, total, displayDate, orderNumber, discount, user));
             return String.format("Receipt saved: %s  (path: %s)%n", receiptFile.getName(), receiptFile.getPath());
         } catch (IOException e) {
             return "Failed to save receipt: " + e.getMessage();
         }
     }
 
-    public static String buildReceipt(Order order, double total, double subtotal, String date, int orderNumber, Discount discount, User user) {
+    public static String buildReceipt(Order order, double total, String date, int orderNumber, Discount discount, User user) {
         StringBuilder sb = new StringBuilder();
 
         sb.append("=".repeat(50)).append("\n");

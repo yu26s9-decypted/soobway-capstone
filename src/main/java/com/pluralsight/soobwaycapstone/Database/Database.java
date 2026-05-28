@@ -4,6 +4,7 @@ import com.pluralsight.soobwaycapstone.models.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Database {
@@ -77,5 +78,18 @@ public class Database {
             }
         }
         return null;
+    }
+
+    public static User registerNewUser(String email, String username) throws SQLException {
+        String insertQuery = "INSERT INTO users (id, username, email, joined_at, tier) VALUES (gen_random_uuid(), ?, ?, NOW(), 'BASIC')";
+
+        try (Connection connection = connect();
+             PreparedStatement s = connection.prepareStatement(insertQuery)) {
+                s.setString(1, username);
+                s.setString(2, email);
+                s.executeUpdate();
+        }
+
+        return getUserByEmail(email);
     }
 }

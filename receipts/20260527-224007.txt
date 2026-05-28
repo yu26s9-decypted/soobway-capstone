@@ -1,0 +1,37 @@
+==================================================
+                S O O B W A Y
+==================================================
+  Order #1990
+==================================================
+  5/27/26 - 10:40PM
+==================================================
+
+  Sandwich
+    + (L)Andy's Special | Artisan Italian $9.50
+    + CHICKEN                      $3.00
+    + JALAPENOS                    $0.00
+    + LETTUCE                      $0.00
+    + BACON                        $3.00
+    + RANCH                        $0.00
+  Total -                        $15.50
+
+  Sandwich
+    + (L)Joffre's Forehead | Flatbread $9.50
+    + GUACAMOLE                    $2.25
+    + ROASTED_PEPPERS              $2.25
+    + SUN_DRIED_TOMATOES           $2.25
+    + AVOCADO                      $2.25
+    + PROVOLONE                    $2.25
+    + MOZZARELLA                   $2.25
+  Total -                        $23.00
+
+  Total                          $38.50
+  ----------------------------------------
+  Member: Andy                   andy@gmail.com
+  Tier:   BASIC                 
+  BASIC Member                   -5% (-$1.93)
+==================================================
+  ORDER TOTAL                    $36.57
+==================================================
+    Thanks for choosing SOOBWAY!
+==================================================

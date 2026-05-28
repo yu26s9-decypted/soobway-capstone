@@ -54,7 +54,7 @@ public class CheckoutController {
                             .mapToDouble(Item::calculatePrice)
                             .sum();
             int orderNumber = (int) (Math.random() * 9000 + 1000);
-            String r = RecieptManager.saveReciept(OrderSession.getOrder(), totalPrice, totalPrice, orderNumber, Discount.none(), null );
+            String r = RecieptManager.saveReciept(OrderSession.getOrder(), totalPrice, orderNumber, Discount.none(), null );
             System.out.println(r);
 
             Label result = new Label(r);

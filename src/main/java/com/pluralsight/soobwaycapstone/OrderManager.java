@@ -117,15 +117,32 @@ public class OrderManager {
             return;
         }
 
-
         String promptForEmail = Console.askForString("Would you like to enter your email for member discounts (or press Enter to skip)");
+
         if(!promptForEmail.isBlank()){
-           try {
-               user = Database.getUserByEmail(promptForEmail);
-           } catch (SQLException e) {
-               System.out.println(e.getMessage());
-           }
-            discount = user != null ? Discount.forUser(user) : Discount.none();
+            if(!User.checkIfValidEmail(promptForEmail)) {
+                System.out.println("REGEX validation for email failed.");
+                return;
+            }
+            try {
+                user = Database.getUserByEmail(promptForEmail);
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+
+
+            if (user != null) {
+                discount = Discount.forUser(user);
+                System.out.printf("Welcome back %s! Your %.0f%% discount has been applied.%n",
+                        user.getUsername(), discount.getPercentage() * 100);
+            } else {
+                user = User.promptForSignUp(promptForEmail);
+                if (user != null) {
+                    discount = Discount.forUser(user);
+                } else {
+                    System.out.println("Email was not found in the database. No discount was applied.");
+                }
+            }
         }
          double subtotal = order.getItem().stream()
                 .mapToDouble(Item::calculatePrice)
@@ -134,14 +151,14 @@ public class OrderManager {
          totalPrice = discount.applyDiscount(subtotal);
 
 
-        System.out.println(RecieptManager.buildReceipt(order, totalPrice, subtotal,
+        System.out.println(RecieptManager.buildReceipt(order, totalPrice,
                 LocalDateTime.now().format(DateTimeFormatter.ofPattern("M/d/yy - hh:mma")), orderNumber, discount, user));
 
 
         String confirm = Console.askForString("Would you like to checkout with the following? (y/n)");
         if (confirm.equalsIgnoreCase("y")) {
             System.out.println("\t Thank you for choosing SOOBWAY!");
-            System.out.println(RecieptManager.saveReciept(order, totalPrice, subtotal, orderNumber, discount, user));
+            System.out.println(RecieptManager.saveReciept(order, totalPrice, orderNumber, discount, user));
             isOrdering = false;
 
         } else {

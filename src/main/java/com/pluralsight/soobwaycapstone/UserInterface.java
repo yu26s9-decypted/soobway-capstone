@@ -27,8 +27,4 @@ public class UserInterface {
             }
         }
     }
-
-    public void processNewOrder(){
-        System.out.println("What would you like to order?");
-    }
 }

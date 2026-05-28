@@ -22,7 +22,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         Application.setUserAgentStylesheet(new PrimerLight().getUserAgentStylesheet());
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 520);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 620);
         scene.getStylesheets().add(
                 HelloApplication.class.getResource("style.css").toExternalForm()
         );
@@ -30,6 +30,7 @@ public class HelloApplication extends Application {
         stage.setTitle("SOOBWAY Welcomes You!");
         stage.setScene(scene);
         stage.show();
+        stage.setResizable(false);
     }
 
 }
