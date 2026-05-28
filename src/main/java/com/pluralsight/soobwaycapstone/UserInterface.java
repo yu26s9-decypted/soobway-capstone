@@ -21,9 +21,12 @@ public class UserInterface {
 
             if (userInput == 1) {
                 orderManager.processNewOrder();
-            } else {
+            } else if (userInput == 2) {
                 System.out.println("Thank you!");
                 break;
+            } else
+            {
+                System.out.println("Invalid Option, please try again");
             }
         }
     }

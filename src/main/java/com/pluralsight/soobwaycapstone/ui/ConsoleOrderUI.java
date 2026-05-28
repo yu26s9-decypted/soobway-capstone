@@ -1,5 +1,7 @@
 package com.pluralsight.soobwaycapstone.ui;
 
+import com.pluralsight.soobwaycapstone.models.Order;
+import com.pluralsight.soobwaycapstone.models.Sandwich;
 import com.pluralsight.soobwaycapstone.models.Side;
 import com.pluralsight.soobwaycapstone.models.Topping;
 import com.pluralsight.soobwaycapstone.models.enums.PresetSandwichEnum;
@@ -18,9 +20,10 @@ public class ConsoleOrderUI implements IOrderUI{
             \t 2) Add Drink
             \t 3) Add Side
             \t 4) Checkout
+            \t 5) Edit Sandwich
             \t 0) Cancel
              > """;
-        return Console.askForInt(prompt, 0, 4);
+        return Console.askForInt(prompt, 0, 5);
     }
 
     @Override
@@ -162,5 +165,16 @@ public class ConsoleOrderUI implements IOrderUI{
 
         int choice = Console.askForInt("Enter your choice", 1, presets.length);
         return presets[choice - 1];
+    }
+
+
+    public int askSandwichToEdit(List<Sandwich> sandwiches) {
+        int size = sandwiches.size();
+        int count = 1;
+        System.out.println("Which Sandwich would you like to modify?");
+        for (Sandwich s : sandwiches) {
+            System.out.printf("\t %d) [%s] %s - [toppings: %s] ",count++, s.getSize(), s.getType(), s.getTopping());
+        }
+        return Console.askForInt("Select your choice" , 0, size);
     }
 }

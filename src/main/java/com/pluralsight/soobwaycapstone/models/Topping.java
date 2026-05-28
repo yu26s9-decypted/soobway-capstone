@@ -75,5 +75,8 @@ public class Topping {
         return isExtra ? baseCost + extraCost : baseCost;
     }
 
-
+    @Override
+    public String toString() {
+        return  topping + (isExtra ?  "Extra: " + count : "" );
+    }
 }

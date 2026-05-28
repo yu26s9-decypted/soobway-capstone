@@ -37,6 +37,7 @@ public class OrderManager {
                 case 2 -> addDrink(order);
                 case 3 -> addSide(order);
                 case 4 -> checkout(order);
+                case 5 -> editSandwich(order);
                 case 0 -> {
                     order.getItem().clear();
                     System.out.println("The order was cancelled.");
@@ -186,6 +187,15 @@ public class OrderManager {
         order.addItem(new Sandwich(size, breadType, new ArrayList<>(checkDup.values()), false));
     }
 
+    public void editSandwich(Order order){
+        List<Sandwich> sandwiches = order.getItem().stream()
+                .filter(item -> item instanceof Sandwich)
+                .map(item -> (Sandwich) item)
+                .toList();
 
+        int choice = ui.askSandwichToEdit(sandwiches);
+
+    }
 }
+
 
