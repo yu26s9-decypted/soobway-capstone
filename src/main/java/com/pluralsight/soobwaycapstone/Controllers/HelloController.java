@@ -58,6 +58,16 @@ public class HelloController {
     }
 
     @FXML
+    private void onSideSelection () throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("sides-view.fxml"));
+        VBox sideView = loader.load();
+        SideController sideController = loader.getController();
+        sideController.setParentController(this, content);
+        content.getChildren().setAll(sideView);
+
+    }
+
+    @FXML
     private void onCancelOrder(){
         OrderSession.resetOrder();
         refreshSidebar();

@@ -80,6 +80,7 @@
 
                 <Button text="Side" styleClass="tile-yellow"
                         prefWidth="190" prefHeight="90"
+                        onAction="#onSideSelection"
                         GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 
             </GridPane>

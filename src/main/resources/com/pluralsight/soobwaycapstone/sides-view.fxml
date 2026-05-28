@@ -6,9 +6,27 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.pluralsight.soobwaycapstone.Controllers.SideController"
+      styleClass="root-container" spacing="0" prefHeight="620" prefWidth="900"
+      stylesheets="@style.css">
 
-</AnchorPane>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-background: transparent;">
+        <FlowPane fx:id="presetList" hgap="12" vgap="12">
+            <padding><Insets top="16" left="16" right="16" bottom="16"/></padding>
+        </FlowPane>
+    </ScrollPane>
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">
+        <padding><Insets top="12" left="16" right="16" bottom="12"/></padding>
+        <Button text="← Back" styleClass="btn-void" onAction="#onBack"/>
+        <Label text="Drinks" styleClass="top-bar-title" style="-fx-padding: 0 0 0 12;"/>
+    </HBox>
+
+
+</VBox>
