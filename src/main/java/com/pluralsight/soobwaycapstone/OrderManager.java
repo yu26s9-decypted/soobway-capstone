@@ -61,14 +61,8 @@ public class OrderManager {
         } else {
             breadType = ui.askBreadType();
             toasted = ui.askToasted();
-            if(toasted){
-                breadType = String.format("%s (Toasted)", breadType);
-            }
-
             toppings = ui.askToppings();
         }
-
-
 
 
         /**
@@ -88,7 +82,7 @@ public class OrderManager {
            }
         }
 
-        order.addItem(new Sandwich(size, breadType, new ArrayList<>(checkDup.values()), toasted));
+        order.addItem(new Sandwich(size, breadType, new ArrayList<>(checkDup.values()), false, toasted ));
         System.out.println("Order was added.");
     }
 
@@ -184,7 +178,7 @@ public class OrderManager {
             }
         }
 
-        order.addItem(new Sandwich(size, breadType, new ArrayList<>(checkDup.values()), false));
+        order.addItem(new Sandwich(size, breadType, new ArrayList<>(checkDup.values()), false, preset.toasted));
     }
 
     public void editSandwich(Order order){
@@ -252,6 +246,12 @@ public class OrderManager {
                         case 3 -> isEditingToppingChoice = false;
                     }
                 }
+            }
+            case 4 -> {
+                boolean toast = ui.askToasted();
+                selected.setToasted(toast);
+
+
             }
             case 5 -> isModifyingSandwich = false;
         }

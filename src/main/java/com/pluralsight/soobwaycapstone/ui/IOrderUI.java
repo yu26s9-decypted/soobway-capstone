@@ -14,7 +14,11 @@ public interface IOrderUI {
     int askOrderChoice();
     String askBreadType();
     List<Topping> askToppings();
-    boolean askToasted();
+
+    default boolean askToasted() {
+        return false;
+    }
+
     String askDrinkName();
     Size askDrinkSize();
     Side askSide();

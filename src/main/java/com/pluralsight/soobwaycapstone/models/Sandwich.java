@@ -6,9 +6,13 @@ import java.util.List;
 
 public class Sandwich extends Item{
     private final List<Topping> topping;
-    public Sandwich(Size size, String type, List<Topping> topping, boolean specialOption) {
+    private boolean isToasted;
+    public Sandwich(Size size, String type, List<Topping> topping, boolean specialOption, boolean isToasted) {
         super(size, type, specialOption);
         this.topping = topping;
+        this.isToasted = false;
+        setToasted(isToasted);
+
     }
 
     public List<Topping> getTopping() {
@@ -29,6 +33,19 @@ public class Sandwich extends Item{
             case MEDIUM -> "M";
             case LARGE -> "L";
         };
+    }
+
+    public boolean isToasted() {
+        return isToasted;
+    }
+
+    public void setToasted(boolean toasted) {
+        isToasted = toasted;
+        type = type.replace("(Toasted) ", "");
+        if(isToasted){
+            type = String.format("(Toasted) %s", type);
+        }
+
     }
 
     @Override
