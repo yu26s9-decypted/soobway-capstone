@@ -34,6 +34,10 @@ public class Topping {
         return count++;
     }
 
+    public int decreaseCount(){
+        return count--;
+    }
+
     public boolean isExtra() {
         return isExtra;
     }

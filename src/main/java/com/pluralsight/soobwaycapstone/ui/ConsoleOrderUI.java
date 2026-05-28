@@ -179,7 +179,7 @@ public class ConsoleOrderUI implements IOrderUI{
                 System.out.println("You haven't customize your sandwich yet!");
             }
         }
-        return Console.askForInt("Select your choice" , 0, size);
+        return Console.askForInt("Select your choice (Exit by entering 0)" , 0, size);
     }
 
     public int askSandwichToEditChoices(){
@@ -189,7 +189,18 @@ public class ConsoleOrderUI implements IOrderUI{
                 \t 2) Bread Type
                 \t 3) Topping
                 \t 4) Toasted
+                \t 5) Return to Order Menu
                 """;
-        return Console.askForInt(m, 1,4);
+        return Console.askForInt(m, 1,5);
+    }
+
+    public int askEditToppingChoices(){
+        String m = """
+                \t What would you like to do?
+                \t 1) Add more topping
+                \t 2) Remove a topping
+                \t 3) Return to Editing Menu
+                """;
+        return Console.askForInt(m, 1,3);
     }
 }

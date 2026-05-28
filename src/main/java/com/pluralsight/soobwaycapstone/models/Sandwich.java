@@ -46,6 +46,30 @@ public class Sandwich extends Item{
         return baseCost + toppingCost;
     }
 
+    public void addToTopping(Topping addedToppings){
+        for (Topping exist : topping){
+            if(exist.getTopping() == addedToppings.getTopping()){
+                exist.setExtra(true);
+                exist.addCount();
+                return;
+            }
+        }
+        topping.add(addedToppings);
+    }
+
+    public void removeTopping(int i){
+        Topping t = topping.get(i);
+
+        if(t.isExtra()){
+            t.decreaseCount();
+            if(t.getCount() == 1){
+                t.setExtra(false);
+            } else {
+                topping.remove(i);
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return String.format("%s - %s | %s", size, type, topping);

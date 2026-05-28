@@ -22,4 +22,5 @@ public interface IOrderUI {
     PresetSandwichEnum askPreset();
     int askSandwichToEdit(List<Sandwich> sandwiches);
     int askSandwichToEditChoices();
+    int askEditToppingChoices();
 }

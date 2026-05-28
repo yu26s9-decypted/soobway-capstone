@@ -193,11 +193,16 @@ public class OrderManager {
                 .map(item -> (Sandwich) item)
                 .toList();
 
-        int choice = ui.askSandwichToEdit(sandwiches) - 1;
-        Sandwich selected = sandwiches.get(choice);
+        int choice = ui.askSandwichToEdit(sandwiches);
+        if(choice == 0){
+            System.out.println("Exiting.");
+            return;
+        }
+        Sandwich selected = sandwiches.get((choice) - 1);
 
         System.out.println(selected);
-
+        boolean isModifyingSandwich = true;
+        while (isModifyingSandwich){
         switch (ui.askSandwichToEditChoices()){
             case 1 -> {
                 Size updatedSize =ui.askSize();
@@ -209,7 +214,48 @@ public class OrderManager {
                 selected.setType(breadType);
                 System.out.println("%s size has been switched to " + breadType);
             }
+            case 3 -> {
+                int count = 0;
+                for (Topping t : selected.getTopping()){
+                    System.out.printf("%d), %s", count, t);
+                    count++;
+               }
+
+            boolean isEditingToppingChoice = true;
+
+            while (isEditingToppingChoice){
+                    switch (ui.askEditToppingChoices()) {
+                        case 1 -> {
+                            List<Topping> addNewTopping = ui.askToppings();
+                            for (Topping t : addNewTopping) {
+                                selected.addToTopping(t);
+                            }
+                        }
+
+                        case 2 -> {
+                            int promptForChoice = Console.askForInt("Which topping would you like to remove?", 0, selected.getTopping().size() - 1);
+                            Topping t = selected.getTopping().get(promptForChoice);
+
+                            if (t.isExtra()) {
+                                int promptChoice2 = Console.askForInt("Would you like to remove all, one? (1 for all, 2 for one)", 1, 3);
+                                if (promptChoice2 == 1) {
+                                    selected.getTopping().remove(promptForChoice);
+                                } else if (promptChoice2 == 2) {
+                                    selected.removeTopping(promptForChoice);
+                                }
+
+                            } else {
+                                selected.getTopping().remove(promptForChoice);
+                            }
+                        }
+
+                        case 3 -> isEditingToppingChoice = false;
+                    }
+                }
+            }
+            case 5 -> isModifyingSandwich = false;
         }
+    }
 
 
 

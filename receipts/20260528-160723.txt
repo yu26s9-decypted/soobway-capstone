@@ -1,0 +1,58 @@
+==================================================
+                S O O B W A Y
+==================================================
+  Order #5143
+==================================================
+  5/28/26 - 04:07PM
+==================================================
+
+  Sandwich
+    + (M)Andy's Special | Artisan Italian $6.50
+    + LETTUCE                      $0.00
+    + CHICKEN                      $2.00
+    + JALAPENOS                    $0.00
+    + BACON                        $2.00
+    + RANCH                        $0.00
+  Total -                        $10.50
+
+  Sandwich
+    + (M)Matt's Debugger | White Italian $6.50
+    + CHEDDAR                      $1.50
+    + JALAPENOS                    $0.00
+    + BACON                        $2.00
+    + STEAK                        $2.00
+    + PEPPERONI                    $2.00
+    + RANCH                        $0.00
+  Total -                        $14.00
+
+  Sandwich
+    + (M)Jayln Da Goat | Artisan Italian $6.50
+    + LETTUCE                      $0.00
+    + CHEDDAR                      $1.50
+    + BACON                        $2.00
+    + STEAK                        $2.00
+    + TOMATO                       $0.00
+    + RANCH                        $0.00
+  Total -                        $12.00
+
+  Sandwich
+    + (M)Jayln Da Goat | Artisan Italian $6.50
+    + LETTUCE                      $0.00
+    + CHEDDAR                      $1.50
+    + BACON                        $2.00
+    + STEAK                        $2.00
+    + TOMATO                       $0.00
+    + RANCH                        $0.00
+  Total -                        $12.00
+
+  Sandwich
+    + (M)The NullPointerException | White Italian $6.50
+    + MAYO                         $0.00
+    + RANCH                        $0.00
+  Total -                        $6.50
+
+==================================================
+  ORDER TOTAL                    $55.00
+==================================================
+    Thanks for choosing SOOBWAY!
+==================================================

@@ -1,0 +1,42 @@
+==================================================
+                S O O B W A Y
+==================================================
+  Order #5369
+==================================================
+  5/28/26 - 02:04PM
+==================================================
+
+  Sandwich
+    + (M)Andy's Special | Artisan Italian $6.50
+    + JALAPENOS                    $0.00
+    + BACON                        $2.00
+    + RANCH                        $0.00
+    + LETTUCE                      $0.00
+    + CHICKEN                      $2.00
+  Total -                        $10.50
+
+  Sandwich
+    + (M)Matt's Debugger | White Italian $6.50
+    + STEAK                        $2.00
+    + JALAPENOS                    $0.00
+    + PEPPERONI                    $2.00
+    + BACON                        $2.00
+    + RANCH                        $0.00
+    + CHEDDAR                      $1.50
+  Total -                        $14.00
+
+  Sandwich
+    + (M)Joffre's Forehead | Flatbread $6.50
+    + ROASTED_PEPPERS              $1.50
+    + SUN_DRIED_TOMATOES           $1.50
+    + MOZZARELLA                   $1.50
+    + GUACAMOLE                    $1.50
+    + AVOCADO                      $1.50
+    + PROVOLONE                    $1.50
+  Total -                        $15.50
+
+==================================================
+  ORDER TOTAL                    $40.00
+==================================================
+    Thanks for choosing SOOBWAY!
+==================================================
