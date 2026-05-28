@@ -25,7 +25,7 @@ public class Discount {
 
     public static Discount forUser(User user) {
         double discountType = switch (user.getMembershipTier()) {
-            case "BASIC" -> 0.05;
+            case "BASIC" -> 0.03;
             case "REWARDS" -> 0.15;
             default -> 0.00;
         };

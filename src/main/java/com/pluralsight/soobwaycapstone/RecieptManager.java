@@ -62,7 +62,7 @@ public class RecieptManager {
         if (discount != null && discount.getPercentage() > 0) {
             double originalCost = total / (1 - discount.getPercentage());
             sb.append(String.format("  %-30s $%.2f%n", "Total", originalCost));
-            sb.append("  ").append("-".repeat(40)).append("\n");
+            sb.append("  ").repeat("-", 40).append("\n");
 
             if (user != null) {
                 sb.append(String.format("  Member: %-22s %s%n", user.getUsername(), user.getEmail()));

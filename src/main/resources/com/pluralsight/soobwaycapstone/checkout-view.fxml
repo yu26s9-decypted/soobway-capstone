@@ -20,7 +20,7 @@
     </ImageView>
 
     <Label text="Awaiting Payment..." style="-fx-font-size: 20px; -fx-font-weight: bold;" fx:id="paymentStatus"/>
-    <Label text="Tap or insert card to complete order." style="-fx-text-fill: #888;"/>
+    <Label text="Tap or insert card to complete order." style="-fx-text-fill: #888;" fx:id="paymentsubtext"/>
     <Button onAction="#simulatePayment" styleClass="btn-paysimulation">simulate payment</Button>
     <Button onAction="#simulateFailedPayment" styleClass="btn-failedpaysimulation">simulate failed payment</Button>
     <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="12">

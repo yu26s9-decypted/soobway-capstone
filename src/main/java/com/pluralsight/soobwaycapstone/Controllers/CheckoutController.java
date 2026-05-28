@@ -20,6 +20,7 @@ public class CheckoutController {
     public ImageView paymentIcon;
     public Label paymentStatus;
     public VBox receiptContainer;
+    public Label paymentsubtext;
     private HelloController parentController;
     private VBox content;
 
@@ -49,6 +50,7 @@ public class CheckoutController {
             paymentIcon.setRotate(0);
             paymentIcon.setImage(new Image(HelloApplication.class.getResourceAsStream("asset/checkmark.png")));
             paymentStatus.setText("Payment Accepted.");
+            paymentsubtext.setText("Transaction was completed.");
 
             double totalPrice = OrderSession.getOrder().getItem().stream()
                             .mapToDouble(Item::calculatePrice)
@@ -94,6 +96,7 @@ public class CheckoutController {
             paymentIcon.setRotate(0);
             paymentIcon.setImage(new Image(HelloApplication.class.getResourceAsStream("asset/Failed.png")));
             paymentStatus.setText("Payment Failed.");
+            paymentsubtext.setText("We could not complete your transaction ):");
 
         });
         pauseTransition.play();

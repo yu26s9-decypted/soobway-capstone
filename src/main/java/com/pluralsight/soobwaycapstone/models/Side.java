@@ -5,7 +5,7 @@ public class Side extends Item {
     double price;
 
     public Side(String name, double price) {
-        super(null, "Side", false);
+        super(null, name, false);
         this.name = name;
         this.price = price;
     }
@@ -29,5 +29,9 @@ public class Side extends Item {
     @Override
     public double calculatePrice() {
         return price;
+    }
+
+    public String toString() {
+        return name;
     }
 }

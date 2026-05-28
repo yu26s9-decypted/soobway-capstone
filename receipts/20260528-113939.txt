@@ -1,0 +1,48 @@
+==================================================
+                S O O B W A Y
+==================================================
+  Order #1077
+==================================================
+  5/28/26 - 11:39AM
+==================================================
+
+  Sandwich
+    + (M)Matt's Debugger | White Italian $6.50
+    + STEAK                        $2.00
+    + PEPPERONI                    $2.00
+    + JALAPENOS                    $0.00
+    + CHEDDAR                      $1.50
+    + RANCH                        $0.00
+    + BACON                        $2.00
+  Total -                        $14.00
+
+  Sandwich
+    + (M)Joffre's Forehead | Flatbread $6.50
+    + MOZZARELLA                   $1.50
+    + GUACAMOLE                    $1.50
+    + PROVOLONE                    $1.50
+    + SUN_DRIED_TOMATOES           $1.50
+    + ROASTED_PEPPERS              $1.50
+    + AVOCADO                      $1.50
+  Total -                        $15.50
+
+  Sandwich
+    + (M)Janice Sandwich | Artisan Italian $6.50
+    + STEAK                        $2.00
+    + AVOCADO                      $1.50
+    + MAYO + extra (x0)            $0.00
+  Total -                        $10.00
+
+  Drink - Soda                   $2.00
+
+  Drink - Sprite                 $2.00
+
+  Side  - CHOCOLATE_COOKIE       $1.50
+
+  Side  - LAYS_CHIPS             $1.00
+
+==================================================
+  ORDER TOTAL                    $46.00
+==================================================
+    Thanks for choosing SOOBWAY!
+==================================================

@@ -45,8 +45,9 @@ public class DrinksController {
             presetList.getChildren().add(row);
 
             row.setOnMouseClicked(e -> {
-                OrderSession.getOrder().addItem(new Drink(d.defaultSize, d.displayName));
+                OrderSession.getOrder().addItem(new Drink(Size.MEDIUM, d.displayName));
                 if (parentController != null) parentController.refreshSidebar();
+
             });
         }
     }

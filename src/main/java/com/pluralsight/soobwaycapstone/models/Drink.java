@@ -7,7 +7,7 @@ public class Drink extends Item{
     private double price;
 
     public Drink(Size size, String drinkName) {
-       super(size, "Drink", false );
+       super(size, drinkName, false );
        this.drinkName = drinkName;
     }
 
@@ -28,6 +28,10 @@ public class Drink extends Item{
 
     public void setDrinkName(String drinkName) {
         this.drinkName = drinkName;
+    }
+
+    public String toString() {
+        return " (" + size + ")" + drinkName;
     }
 
 }

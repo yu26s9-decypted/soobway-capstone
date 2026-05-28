@@ -1,5 +1,7 @@
 package com.pluralsight.soobwaycapstone.models.enums;
 
+import com.pluralsight.soobwaycapstone.models.Topping;
+
 import java.util.List;
 
 public enum PresetSandwichEnum {
@@ -60,7 +62,9 @@ public enum PresetSandwichEnum {
             "Legend has it no one has seen the full Joffre. This sandwich pays tribute.",
             List.of(ToppingEnum.ROASTED_PEPPERS, ToppingEnum.SUN_DRIED_TOMATOES,
                     ToppingEnum.AVOCADO, ToppingEnum.GUACAMOLE,
-                    ToppingEnum.PROVOLONE, ToppingEnum.MOZZARELLA));
+                    ToppingEnum.PROVOLONE, ToppingEnum.MOZZARELLA)),
+    JANICE_ESCOBAR("Janice Sandwich", BreadType.ARTISAN_ITALIAN, "Janice made this sandwich",
+            List.of(ToppingEnum.STEAK, ToppingEnum.MAYO, ToppingEnum.AVOCADO));
 
     public final String displayName;
     public final BreadType bread;
@@ -90,7 +94,5 @@ public enum PresetSandwichEnum {
         public String toString(){
             return displayName;
         }
-
-
     }
 }

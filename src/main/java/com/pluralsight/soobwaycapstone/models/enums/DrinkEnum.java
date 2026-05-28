@@ -16,4 +16,21 @@ public enum DrinkEnum {
         this.defaultSize = defaultSize;
         this.price = price;
     }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public Size getDefaultSize() {
+        return defaultSize;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return defaultSize + displayName;
+    }
 }
