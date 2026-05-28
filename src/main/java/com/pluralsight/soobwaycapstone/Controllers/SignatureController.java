@@ -47,10 +47,12 @@ public class SignatureController {
             VBox info = new VBox(4);
             Label name = new Label(preset.displayName);
             Label desc = new Label(preset.description);
+            Label toppings = new Label(preset.toppings.toString());
             row.getStyleClass().add("preset-card");
             name.getStyleClass().add("preset-name");
             desc.getStyleClass().add("preset-desc");
-            info.getChildren().addAll(name, desc);
+            toppings.getStyleClass().add("preset-desc");
+            info.getChildren().addAll(name, desc, toppings);
 
             row.getChildren().add(info);
             presetList.getChildren().add(row);
