@@ -110,7 +110,13 @@ cd soobway-capstone
 mvn clean install
 ```
 
-### How to run
+### How to run the CLI 
+
+```
+mvn exec:java -Dexec.mainClass="com.pluralsight.soobwaycapstone.Main"
+```
+
+### How to run the GUI
 
 ```
 mvn javafx:run
