@@ -3,10 +3,17 @@
 > ### About The Capstone
 > Soobway is a java point-of-sale system for sandwich ordering inspired off of Subway. This projects features a incomplete JavaFX GUI, membership database, simulated checkout flow, and CLI.
 
+
 ![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=java)
 ![JavaFX](https://img.shields.io/badge/JavaFX-blue?style=flat-square)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-green?style=flat-square&logo=postgresql)
 ![Maven](https://img.shields.io/badge/Build-Maven-red?style=flat-square&logo=apachemaven)
+
+> ### GUI Demo
+> <img width="1112" height="760" alt="Screenshot 2026-05-29 at 4 39 51 AM" src="https://github.com/user-attachments/assets/847ba57c-1d4d-41b7-807e-29936e6ea4b2" />
+
+> ### CLI Demo
+> <img width="1073" height="362" alt="Screenshot 2026-05-29 at 4 42 11 AM" src="https://github.com/user-attachments/assets/32cd76d5-3362-404b-bcec-20672380fc6b" />
 
 ## Features
 
