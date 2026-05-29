@@ -27,7 +27,7 @@ public class SignatureController {
     }
 
     @FXML
-    private void onBack() throws IOException {
+    private void onBack() {
       content.getChildren().setAll(parentController.getMainGrid());
     }
 

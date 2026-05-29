@@ -191,6 +191,7 @@ public class OrderManager {
                 .toList();
 
         int choice = ui.askSandwichToEdit(sandwiches);
+
         if(choice == 0){
             System.out.println("Exiting.");
             return;
@@ -204,12 +205,12 @@ public class OrderManager {
             case 1 -> {
                 Size updatedSize =ui.askSize();
                 selected.setSize(updatedSize);
-                System.out.println("%s size has been switched to " + updatedSize);
+                System.out.printf("size has been switched to %s" , updatedSize);
             }
             case 2 -> {
                 String breadType = ui.askBreadType();
                 selected.setType(breadType);
-                System.out.println("%s size has been switched to " + breadType);
+                System.out.printf("bread type has been switched to %s\n", breadType);
             }
             case 3 -> {
                 int count = 0;

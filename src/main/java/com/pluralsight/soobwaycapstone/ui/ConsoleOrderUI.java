@@ -170,14 +170,14 @@ public class ConsoleOrderUI implements IOrderUI{
 
     public int askSandwichToEdit(List<Sandwich> sandwiches) {
         int size = sandwiches.size();
+        if(sandwiches.isEmpty()){
+            System.out.println("You do not have a sandwich yet!");
+            return 0;
+        }
         int count = 1;
         System.out.println("Which Sandwich would you like to modify?");
         for (Sandwich s : sandwiches) {
-            System.out.printf("\t %d) [%s] %s - [toppings: %s] ",count++, s.getSize(), s.getType(), s.getTopping());
-
-            if(sandwiches.isEmpty()){
-                System.out.println("You haven't customize your sandwich yet!");
-            }
+            System.out.printf("\t %d) [%s] %s - [toppings: %s] \n",count++, s.getSize(), s.getType(), s.getTopping());
         }
         return Console.askForInt("Select your choice (Exit by entering 0)" , 0, size);
     }
