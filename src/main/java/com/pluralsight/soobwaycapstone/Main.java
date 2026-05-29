@@ -9,19 +9,23 @@ public class Main
     public static void main(String[] args)
     {
         boolean useGui = false;
-        String option = Console.askForString("This Capstone features a GUI that is unfinished due to CORPORATE BUDGET CUTS ):. Would you like to launch the GUI version? (y/n)");
-        if(option.equalsIgnoreCase("y")){
-             useGui = true;
-        }
+        boolean selected = false;
+        while (!selected) {
+            String option = Console.askForString("This Capstone features a GUI that is unfinished due to CORPORATE BUDGET CUTS ):. Would you like to launch the GUI version? (y/n)");
+            if (option.equalsIgnoreCase("y")) {
+                useGui = true;
+            }
 
-        if(useGui)
-        {
-            Launcher.main(args);
-        }
-        else
-        {
-            UserInterface userInterface = new UserInterface();
-            userInterface.display();
+            if (useGui) {
+                Launcher.main(args);
+                selected = true;
+            } else if (option.equalsIgnoreCase("n")) {
+                UserInterface userInterface = new UserInterface();
+                userInterface.display();
+                selected = true;
+            } else {
+                System.out.println("Invalid command");
+            }
         }
     }
 }

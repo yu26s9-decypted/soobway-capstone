@@ -26,9 +26,6 @@ public class SignatureController {
         this.content = content;
     }
 
-    public void setParentController(HelloController parent) {
-        this.parentController = parent;
-    }
     @FXML
     private void onBack() throws IOException {
       content.getChildren().setAll(parentController.getMainGrid());

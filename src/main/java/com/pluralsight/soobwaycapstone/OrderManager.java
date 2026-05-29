@@ -156,8 +156,10 @@ public class OrderManager {
             System.out.println(RecieptManager.saveReciept(order, totalPrice, orderNumber, discount, user));
             isOrdering = false;
 
-        } else {
+        } else if (confirm.equalsIgnoreCase("n")){
             System.out.println("Returning to order menu.");
+        } else {
+            System.out.println("Invalid option");
         }
     }
 
@@ -166,6 +168,7 @@ public class OrderManager {
         List<Topping> toppings = preset.toppings.stream()
                 .map(Topping::new)
                 .toList();
+
 
         Map<ToppingEnum, Topping> checkDup = new HashMap<>();
         for (Topping t : toppings) {
