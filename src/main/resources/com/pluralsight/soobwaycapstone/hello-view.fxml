@@ -22,6 +22,11 @@
         <ImageView fitWidth="130" fitHeight="50" preserveRatio="true">
             <image><Image url="@asset/SOOBWAY1.png"/></image>
         </ImageView>
+        <HBox alignment="CENTER_LEFT"  style="-fx-padding: 12 0 4 0;">
+            <Label styleClass="sidebar-heading">
+                Inspired off of Toast POS, Inc.
+            </Label>
+        </HBox>
 
         <HBox alignment="CENTER_LEFT" style="-fx-padding: 12 0 4 0;">
             <Label text="Employee On Shift" styleClass="sidebar-heading"/>
